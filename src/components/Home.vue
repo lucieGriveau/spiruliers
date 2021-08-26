@@ -1,4 +1,9 @@
 <template>
+  <div class="home">
+    <h1>{{ msg }}</h1>
+    <ResellersList />
+    <CustomersList />
+    <SuppliersList />
   <div className="hello">
     <h1>{{ msg }}</h1>
     <CustomersList/>
@@ -40,7 +45,6 @@ li {
   display: inline-block;
   margin: 0 10px;
 }
-
 a {
   color: #42b983;
 }

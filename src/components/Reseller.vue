@@ -5,8 +5,18 @@
 </template>
 
 <script>
+
 export default {
-  name: "Reseller.vue"
+  name: 'Reseller',
+  props: {
+    id: Number,
+    name: String,
+    description: String,
+    latitude: Number,
+    longitude: Number,
+    created_at: String,
+    updated_at: String
+  }
 }
 </script>
 
