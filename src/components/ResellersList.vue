@@ -1,8 +1,6 @@
 <template>
 <div>
-  <b-table :data="resellers" :columns="columns">
     <Reseller v-for="reseller in resellers" :key="reseller.id" :name="reseller.name" :description="reseller.description" :created_at="reseller.created_at" :updated_at="reseller.updated_at" />
-  </b-table>
 </div>
 </template>
 
@@ -82,18 +80,3 @@ export default {
   }
 }
 </script>
-=======
-  <div>
-
-  </div>
-</template>
-
-<script>
-export default {
-  name: "ResellersList.vue"
-}
-</script>
-
-<style scoped>
-
-</style>

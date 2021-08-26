@@ -1,6 +1,7 @@
 <template>
   <div>
-
+  <b-table :data="resellers" :columns="columns">
+  </b-table>
   </div>
 </template>
 
