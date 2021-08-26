@@ -5,9 +5,13 @@ import Home from './components/Home.vue'
 import SuppliersList from './components/SuppliersList.vue'
 import ResellersList from './components/ResellersList.vue'
 import CustomersList from './components/CustomersList.vue'
+import Buefy from 'buefy';
+import 'buefy/dist/buefy.css';
+
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
+Vue.use(Buefy);
 
 const routes = [
   { path: '/', component: Home }, //routes pour l'accueil qui affiche le composant Home

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/spiruline.jpg" width="250px">
-    <Home msg="Welcome to Spiruliers"/>
+    <Home msg="Welcome to Spiruliars"/>
     <div>
       <router-link to="/"></router-link> <!--Lien route contenu composant Home-->
       <router-link to="/suppliers">Consulter la liste des fournisseurs</router-link> <!--Lien route contenu composant SuppliersList-->

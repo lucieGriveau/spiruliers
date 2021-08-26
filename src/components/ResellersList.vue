@@ -5,15 +5,9 @@
 </template>
 
 <script>
-import Vue from 'vue';
-import Buefy from 'buefy';
-import 'buefy/dist/buefy.css';
-
-Vue.use(Buefy);
-
 import Reseller from './Reseller.vue';
 
-export default {
+export default{
   name: "ResellersList",
   components: {
     Reseller
@@ -21,6 +15,7 @@ export default {
   data() {
     return {
       resellers: [{
+
           id: 1,
           name: "Heath Mayert",
           description: "Dolorem recusandae autem officiis autem fugit quisquam aut. Deserunt placeat sapiente illum voluptate delectus.",
@@ -76,6 +71,7 @@ export default {
           centered: true
         }
       ]
+
     }
   }
 }
