@@ -1,20 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-    <SuppliersList></SuppliersList>
+    <img alt="Vue logo" src="./assets/spiruline.jpg" width="250px">
+    <Home msg="Welcome to Spiruliers"/>
+    <div>
+      <router-link to="/"></router-link> <!--Lien route contenu composant Home-->
+      <router-link to="/suppliers">Consulter la liste des fournisseurs</router-link> <!--Lien route contenu composant SuppliersList-->
+      <router-link to="/resellers">Consulter la liste des revendeurs</router-link> <!--Lien route contenu composant ResellersList-->
+      <router-link to="/customers">Consulter la liste des clients</router-link> <!--Lien route contenu composant CustomersList-->
+      <router-view></router-view> <!--Navigation route(s)-->
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import SuppliersList from "./components/SuppliersList";
+import Home from './components/Home.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
-    SuppliersList,
+    Home
   }
 }
 </script>
