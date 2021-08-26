@@ -15,7 +15,7 @@ export default{
   },
   data() {
     return {
-      resellers [{
+      resellers: [{
             id:3,
             name:"Heath Mayert",
             description:"Dolorem recusandae autem officiis autem fugit quisquam aut. Deserunt placeat sapiente illum voluptate delectus.",
@@ -50,17 +50,6 @@ export default{
   }
 }
 
-</script>
-=======
-  <div>
-
-  </div>
-</template>
-
-<script>
-export default {
-  name: "ResellersList.vue"
-}
 </script>
 
 <style scoped>
