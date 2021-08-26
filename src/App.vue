@@ -1,24 +1,25 @@
 <template>
   <div id="app">
+    <div> <!--Lien routes composants-->
+      <router-link to="/">Home</router-link>
+      <router-link to="/suppliers">Fournisseurs</router-link>
+      <router-link to="/resellers">Revendeurs</router-link>
+      <router-link to="/customers">Clients</router-link>
+    </div>
+
     <img alt="Vue logo" src="./assets/spiruline.jpg" width="250px">
     <Home msg="Welcome to Spiruliars"/>
-    <div>
-      <router-link to="/"></router-link> <!--Lien route contenu composant Home-->
-      <router-link to="/suppliers">Consulter la liste des fournisseurs</router-link> <!--Lien route contenu composant SuppliersList-->
-      <router-link to="/resellers">Consulter la liste des revendeurs</router-link> <!--Lien route contenu composant ResellersList-->
-      <router-link to="/customers">Consulter la liste des clients</router-link> <!--Lien route contenu composant CustomersList-->
-      <router-view></router-view> <!--Navigation route(s)-->
-    </div>
+    <router-view></router-view> <!--Affichage du contenu des routes-->
   </div>
 </template>
 
 <script>
-import Home from './components/Home.vue';
+ import Home from './components/Home.vue';
 
 export default {
   name: 'App',
   components: {
-    Home
+     Home
   }
 }
 </script>

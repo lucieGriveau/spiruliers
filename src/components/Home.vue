@@ -1,16 +1,17 @@
 <template>
   <div class="home">
     <h1>{{ msg }}</h1>
-    <ResellersList />
+
+    <!--<ResellersList />
     <CustomersList />
-    <SuppliersList />
+    <SuppliersList />-->
   </div>
 </template>
 
 <script>
-import CustomersList from './CustomersList.vue'
-import ResellersList from './ResellersList.vue'
-import SuppliersList from './SuppliersList.vue'
+// import CustomersList from './CustomersList.vue'
+// import ResellersList from './ResellersList.vue'
+// import SuppliersList from './SuppliersList.vue'
 
 export default {
   name: 'Home',
@@ -18,9 +19,9 @@ export default {
     msg: String
   },
   components: {
-    CustomersList,
-    ResellersList,
-    SuppliersList,
+    // CustomersList,
+    // ResellersList,
+    // SuppliersList,
   }
 }
 </script>
