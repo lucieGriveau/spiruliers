@@ -10,7 +10,7 @@
 <script>
 import CustomersList from './CustomersList.vue'
 import ResellersList from './ResellersList.vue'
-import SuppliersList from './CustomersList.vue'
+import SuppliersList from './SuppliersList.vue'
 
 export default {
   name: 'Home',
