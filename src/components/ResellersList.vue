@@ -82,3 +82,18 @@ export default {
   }
 }
 </script>
+=======
+  <div>
+
+  </div>
+</template>
+
+<script>
+export default {
+  name: "ResellersList.vue"
+}
+</script>
+
+<style scoped>
+
+</style>
