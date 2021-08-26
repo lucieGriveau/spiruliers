@@ -1,6 +1,8 @@
 <template>
 <div>
+
   <h1>Suppliers List</h1>
+
   <b-table
       :data="suppliers"
       :columns="columns"
@@ -37,6 +39,7 @@ data () {
         id: 1,
         name: 'SpiFourni',
         checkedAt: '26-08-2021',
+        status: 'actif',
         latitude: '35°',
         longitude: '45',
       },
@@ -44,6 +47,7 @@ data () {
         id: 2,
         name: 'SuperSpi',
         checkedAt: '26-08-2021',
+        status: 'actif',
         latitude: '35°',
         longitude: '45',
       }
@@ -55,25 +59,30 @@ data () {
         width: '100',
         numeric: true,
         searchable: true,
+        centered: true
       },
-      {
-        field: 'first_name',
-        label: 'First Name',
-        searchable: true,
-      },
+
       {
         field: 'name',
-        label: 'supplier',
+        label: 'Supplier',
         searchable: true,
-      },
-      {
-        field: 'date',
-        label: 'Date',
         centered: true
       },
       {
-        field: 'gender',
-        label: 'Gender',
+        field: 'checkedAt',
+        label: "Date d'Insertion",
+        searchable: true,
+        centered: true
+      },
+      // {
+      //   field: 'date',
+      //   label: 'Ville',
+      //   centered: true
+      // },
+      {
+        field: 'status',
+        label: 'Status',
+        centered: true
       }
     ]
 
