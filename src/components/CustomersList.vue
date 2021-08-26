@@ -1,16 +1,9 @@
 <template>
   <div>
-    <h1>Liste des clients</h1>
     <Customer
         v-for="customer in customers"
         :key="customer.id"
-        :firstname="customer.firstname"
-        :lastname="customer.lastname"
-        :email="customer.email"
-        :postalCode="customer.postalCode"
-        :city="customer.city"
-        :address="customer.address"
-        :phoneNumber="customer.phoneNumber"
+        :customer="customer"
     />
   </div>
 </template>
@@ -59,7 +52,7 @@ export default {
           phoneNumber: '06',
           reseller_id: 3,
         },
-      ]
+      ],
     }
   }
 }
