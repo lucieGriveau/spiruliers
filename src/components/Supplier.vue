@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!--    <h1>Supplier "fiche"</h1>-->
+
 
     <h2>Fournisseur: {{ name  }} </h2>
     <h2>Date d'Insertion: {{ checkedAt}}</h2>

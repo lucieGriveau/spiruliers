@@ -17,6 +17,7 @@ export default{
   data() {
     return {
       resellers: [{
+
           id: 1,
           name: "Heath Mayert",
           description: "Dolorem recusandae autem officiis autem fugit quisquam aut. Deserunt placeat sapiente illum voluptate delectus.",
@@ -72,11 +73,13 @@ export default{
           centered: true
         }
       ]
+
     }
   }
 }
 
 </script>
+
 
 <style scoped>
 

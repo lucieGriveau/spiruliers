@@ -1,6 +1,11 @@
 <template>
 <div>
   <h1>Suppliers List</h1>
+  <b-table
+      :data="suppliers"
+      :columns="columns"
+      :debounce-search="1000">
+
 
   <Supplier v-for="supplier in suppliers"
             :key="supplier.id"
@@ -9,10 +14,15 @@
             :latitude="supplier.latitude"
             :longitude="supplier.longitude"
             />
-</div>
+  </b-table>
+
+
+  </div>
 </template>
 
 <script>
+
+
 import Supplier from "./Supplier";
 
 export default {
@@ -32,12 +42,43 @@ data () {
       },
       {
         id: 2,
-        name: 'SpiForni',
+        name: 'SuperSpi',
         checkedAt: '26-08-2021',
         latitude: '35°',
         longitude: '45',
       }
+    ],
+    columns: [
+      {
+        field: 'id',
+        label: 'ID',
+        width: '100',
+        numeric: true,
+        searchable: true,
+      },
+      {
+        field: 'first_name',
+        label: 'First Name',
+        searchable: true,
+      },
+      {
+        field: 'name',
+        label: 'supplier',
+        searchable: true,
+      },
+      {
+        field: 'date',
+        label: 'Date',
+        centered: true
+      },
+      {
+        field: 'gender',
+        label: 'Gender',
+      }
     ]
+
+
+
   }
 }
 }
