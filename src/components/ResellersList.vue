@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 <div>
   <Reseller v-for="reseller in resellers" :key="reseller.id" :name="reseller.name" :description="reseller.description" :created_at="reseller.created_at" :updated_at="reseller.updated_at" />
 </div>
@@ -51,3 +52,19 @@ export default{
 }
 
 </script>
+=======
+  <div>
+
+  </div>
+</template>
+
+<script>
+export default {
+  name: "ResellersList.vue"
+}
+</script>
+
+<style scoped>
+
+</style>
+>>>>>>> 39946c4e528323735e85c9672ff5b2a8ccd94dc5

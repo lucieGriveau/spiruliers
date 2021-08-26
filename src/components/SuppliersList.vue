@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
 <div>
   <h1>Suppliers List</h1>
 
@@ -41,6 +42,16 @@ data () {
       }
 
   }
+=======
+  <div>
+
+  </div>
+</template>
+
+<script>
+export default {
+  name: "SuppliersList.vue"
+>>>>>>> 39946c4e528323735e85c9672ff5b2a8ccd94dc5
 }
 </script>
 
