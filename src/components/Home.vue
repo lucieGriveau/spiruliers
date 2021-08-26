@@ -4,11 +4,6 @@
     <ResellersList />
     <CustomersList />
     <SuppliersList />
-  <div className="hello">
-    <h1>{{ msg }}</h1>
-    <CustomersList/>
-    <ResellersList/>
-    <SuppliersList/>
   </div>
 </template>
 
