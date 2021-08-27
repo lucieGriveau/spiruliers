@@ -3,10 +3,7 @@
   <b-table :data="resellers" :columns="columns">
     <Reseller v-for="reseller in resellers" :key="reseller.id" :reseller="reseller" />
   </b-table>
-  <l-map style="height: 300px" :zoom="zoom" :center="center">
-    <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
-    <l-marker :lat-lng="markerLatLng"></l-marker>
-  </l-map>
+  <router-link :to="{ name: 'map', params:{ datas: resellers} }">Voir carte</router-link>
 </div>
 </template>
 

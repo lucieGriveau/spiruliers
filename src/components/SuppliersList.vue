@@ -17,7 +17,7 @@
             :longitude="supplier.longitude"
             />
   </b-table>
-
+<router-link :to="{ name: 'map', params:{ datas: suppliers} }">Voir carte</router-link>
 
   </div>
 </template>
@@ -40,16 +40,16 @@ data () {
         name: 'SpiFourni',
         checkedAt: '26-08-2021',
         status: 'actif',
-        latitude: '35°',
-        longitude: '45',
+        latitude: 47.413220,
+        longitude: -1.219482,
       },
       {
         id: 2,
         name: 'SuperSpi',
         checkedAt: '26-08-2021',
         status: 'actif',
-        latitude: '35°',
-        longitude: '45',
+        latitude: 46.193220,
+        longitude: 4.82,
       }
     ],
     columns: [

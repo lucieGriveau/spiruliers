@@ -9,7 +9,7 @@ import CustomersList from './components/CustomersList.vue'
 import Supplier from './components/Supplier.vue'
 import Reseller from './components/Reseller.vue'
 import Customer from './components/Customer.vue'
-import SuppliersMap from './components/SuppliersMap.vue'
+import Map from './components/Map.vue'
 
 // Map Leaflet
 import 'leaflet/dist/leaflet.css'
@@ -40,14 +40,14 @@ Vue.use(VueRouter)
 Vue.use(Buefy);
 
 const routes = [
-  { path: '/', component: Home }, //routes pour l'accueil qui affiche le composant Home
+  { path: '/', component: Home, name:'home' }, //routes pour l'accueil qui affiche le composant Home
   { path: '/suppliers', component: SuppliersList }, //routes pour suppliers qui affiche le composant SuppliersList
   { path: '/resellers', component: ResellersList }, //routes pour resellers qui affiche le composant ResellersList
   { path: '/customers', component: CustomersList }, //routes pour customers qui affiche le composant CustomersList
   { path: '/supplier', component: Supplier }, //routes pour supplier qui affiche le composant Supplier
   { path: '/reseller', component: Reseller }, //routes pour reseller qui affiche le composant Reseller
   { path: '/customer', component: Customer }, //routes pour customer qui affiche le composant Customer
-  { path: '/suppliers/map', component: SuppliersMap }, //routes pour suppliers qui affiche la map
+  { path: '/map', component: Map, props:true, name: 'map'}, //route qui affiche la map
 ]
 
 const router = new VueRouter({ //instancier la VueRouter (from 'vue-router')
