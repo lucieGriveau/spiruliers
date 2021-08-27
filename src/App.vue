@@ -6,19 +6,20 @@
       <router-link to="/resellers">Revendeurs</router-link>
       <router-link to="/customers">Clients</router-link>
     </div>
-
+    <Home msg="Welcome to Spiruliers"/>
     <img alt="Vue logo" src="./assets/spiruline.jpg" width="250px">
+
     <router-view></router-view> <!--Affichage du contenu des routes-->
   </div>
 </template>
 
 <script>
-//import Home from './components/Home.vue';
+ import Home from './components/Home.vue';
 
 export default {
   name: 'App',
   components: {
-     //Home
+     Home
   }
 }
 </script>
