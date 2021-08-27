@@ -1,10 +1,14 @@
 <template>
   <div>
-    <Customer
-        v-for="customer in customers"
-        :key="customer.id"
-        :customer="customer"
-    />
+    <b-table :data="customers" :columns="columns"> <!--:debounce-search="1000"-->
+      <Customer
+          v-for="customer in customers"
+          :key="customer.id"
+          :customer="customer"
+      />
+      <router-link to="/customer">Customer
+      </router-link>
+    </b-table>
   </div>
 </template>
 
@@ -53,6 +57,31 @@ export default {
           reseller_id: 3,
         },
       ],
+      columns: [{
+          field: 'id',
+          label: 'Customer',
+          width: '40',
+          numeric: true,
+          centered: true
+        },
+        {
+          field: 'lastname',
+          label: 'Last name',
+          //searchable: true,
+          centered: true
+        },
+        {
+          field: 'firstname',
+          label: 'First name',
+          //searchable: true,
+          centered: true
+        },
+        {
+          field: '',
+          label: 'Show more',
+          centered: true
+        },
+      ]
     }
   }
 }
