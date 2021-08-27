@@ -1,22 +1,41 @@
 <template>
   <div>
-    <Customer
-        v-for="customer in customers"
-        :key="customer.id"
-        :customer="customer"
-    />
+    <h1>Customers list</h1><br>
+    <b-table :data="customers">
+      <b-table-column field="id" label="ID" :td-attrs="columnTdAttrs" centered="true" width="40" numeric v-slot="props">
+        {{ props.row.id }}
+      </b-table-column>
+      <b-table-column field="firstname" label="First name" :td-attrs="columnTdAttrs" centered="true" v-slot="props">
+        {{ props.row.firstname }}
+      </b-table-column>
+      <b-table-column field="lastname" label="Last name" :td-attrs="columnTdAttrs" centered="true" v-slot="props">
+        {{ props.row.lastname }}
+      </b-table-column>
+      <b-table-column field="action" label="Action" centered="true" v-slot="props">
+        <router-link
+            :to="{
+              name:'Customer',
+              params:{
+                id:props.row.id,
+                customer:props.row,
+              }
+            }">
+          <b-button type="is-primary">Voir</b-button>
+        </router-link>
+      </b-table-column>
+    </b-table>
   </div>
 </template>
 
 <script>
-import Customer from "./Customer.vue";
+//import Customer from "./Customer.vue";
 
 export default {
   name: "CustomersList",
   components: {
-    Customer
+    //Customer
   },
-  data(){
+  data() {
     return {
       customers: [
         {

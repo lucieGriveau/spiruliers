@@ -48,6 +48,8 @@ const routes = [
   { path: '/reseller', component: Reseller }, //routes pour reseller qui affiche le composant Reseller
   { path: '/customer', component: Customer }, //routes pour customer qui affiche le composant Customer
   { path: '/map', component: Map, props:true, name: 'map'}, //route qui affiche la map
+  { path: '/customer/:id', component: Customer, name: 'Customer', props: true }, //routes pour customer qui affiche le composant Customer
+  { path: '/suppliers/map', component: SuppliersMap }, //routes pour suppliers qui affiche la map
 ]
 
 const router = new VueRouter({ //instancier la VueRouter (from 'vue-router')

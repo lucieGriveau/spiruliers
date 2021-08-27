@@ -8,18 +8,17 @@
     </div>
 
     <img alt="Vue logo" src="./assets/spiruline.jpg" width="250px">
-    <Home msg="Welcome to Spiruliars"/>
     <router-view></router-view> <!--Affichage du contenu des routes-->
   </div>
 </template>
 
 <script>
- import Home from './components/Home.vue';
+//import Home from './components/Home.vue';
 
 export default {
   name: 'App',
   components: {
-     Home
+     //Home
   }
 }
 </script>
