@@ -1,7 +1,7 @@
 <template>
 <div>
   <b-table :data="resellers" :columns="columns">
-    <Reseller v-for="reseller in resellers" :key="reseller.id" :reseller:"reseller" />
+    <Reseller v-for="reseller in resellers" :key="reseller.id" :reseller="reseller" />
   </b-table>
 </div>
 </template>
