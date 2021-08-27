@@ -22,7 +22,6 @@ Vue.component('l-marker', LMarker);
 
 Vue.config.productionTip = false;
 
-
 // Correctif probleme icones
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({
