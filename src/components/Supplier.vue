@@ -15,11 +15,12 @@
 export default {
   name: "Supplier",
   props: {
-    name: String,
-    checkedAt: String,
-    status: String,
-    latitude: String,
-    longitude: String,
+    // name: String,
+    // checkedAt: String,
+    // status: String,
+    // latitude: String,
+    // longitude: String,
+    supplier: Object
   }
 }
 </script>

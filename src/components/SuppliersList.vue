@@ -11,10 +11,7 @@
 
   <Supplier v-for="supplier in suppliers"
             :key="supplier.id"
-            :name="supplier.name"
-            :checkedAt="supplier.checkedAt"
-            :latitude="supplier.latitude"
-            :longitude="supplier.longitude"
+          :supplier="supplier"
             />
   </b-table>
 
