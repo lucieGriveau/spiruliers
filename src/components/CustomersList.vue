@@ -1,17 +1,18 @@
 <template>
   <div>
     <h1>Customers list</h1><br>
+    <p v-if="loading">Loading...</p>
     <b-table :data="customers">
-      <b-table-column field="id" label="ID" :td-attrs="columnTdAttrs" centered="true" width="40" numeric v-slot="props">
+      <b-table-column field="id" label="ID" width="40" numeric v-slot="props">
         {{ props.row.id }}
       </b-table-column>
-      <b-table-column field="firstname" label="First name" :td-attrs="columnTdAttrs" centered="true" v-slot="props">
-        {{ props.row.firstname }}
+      <b-table-column field="firstname" label="First name" v-slot="props">
+        {{ props.row.firstName }}
       </b-table-column>
-      <b-table-column field="lastname" label="Last name" :td-attrs="columnTdAttrs" centered="true" v-slot="props">
-        {{ props.row.lastname }}
+      <b-table-column field="lastname" label="Last name" v-slot="props">
+        {{ props.row.lastName }}
       </b-table-column>
-      <b-table-column field="action" label="Action" centered="true" v-slot="props">
+      <b-table-column field="action" label="Action" v-slot="props">
         <router-link
             :to="{
               name:'Customer',
@@ -23,12 +24,37 @@
           <b-button type="is-primary">Voir</b-button>
         </router-link>
       </b-table-column>
+      <!--      <b-table-column field="edit" label="Edit" v-slot="props">-->
+      <!--        <router-link-->
+      <!--            :to="{-->
+      <!--              name:'Edit',-->
+      <!--              params:{-->
+      <!--                id:props.row.id,-->
+      <!--                customer:props.row,-->
+      <!--              }-->
+      <!--            }">-->
+      <!--          <b-button type="is-primary">Editer</b-button>-->
+      <!--        </router-link>-->
+      <!--      </b-table-column>-->
+      <!--      <b-table-column field="delete" label="Delete" v-slot="props">-->
+      <!--        <router-link-->
+      <!--            :to="{-->
+      <!--              name:'Delete',-->
+      <!--              params:{-->
+      <!--                id:props.row.id,-->
+      <!--                customer:props.row,-->
+      <!--              }-->
+      <!--            }">-->
+      <!--          <b-button type="is-primary">Supprimer</b-button>-->
+      <!--        </router-link>-->
+      <!--      </b-table-column>-->
     </b-table>
   </div>
 </template>
 
 <script>
 //import Customer from "./Customer.vue";
+import axios from "axios"
 
 export default {
   name: "CustomersList",
@@ -37,44 +63,37 @@ export default {
   },
   data() {
     return {
-      customers: [
-        {
-          id: 1,
-          firstname: 'Gabriella',
-          lastname: 'Marins',
-          email: 'gabriella.marinsesilva@le-campus-numerique.fr',
-          postalCode: 38100,
-          city: 'Grenoble',
-          address: 'Somewhere over the rainbow',
-          phoneNumber: '06',
-          reseller_id: 1,
-        },
-        {
-          id: 2,
-          firstname: 'Baptiste',
-          lastname: 'Martin',
-          email: 'baptiste.martin@le-campus-numerique.fr',
-          postalCode: 38100,
-          city: 'Grenoble',
-          address: 'Somewhere close to the market',
-          phoneNumber: '06',
-          reseller_id: 2,
-        },
-        {
-          id: 3,
-          firstname: 'Lucie',
-          lastname: 'Griveau',
-          email: 'lucie.griveau@le-campus-numerique.fr',
-          postalCode: 38100,
-          city: 'Grenoble',
-          address: 'Chez Laura Troussicot',
-          phoneNumber: '06',
-          reseller_id: 3,
-        },
-      ],
+      customers: [],
+      loading: false,
+      error: null,
     }
+  },
+  methods: {
+    getData() {
+      this.loading = true
+      axios
+          .get('https://heroku-campus-suppliers.herokuapp.com/api/customers')
+          .then(response => {
+            this.customers = response.data.data;
+            // console.log(this.customers);
+            // console.log(response);
+            // console.log(response.data);
+            // console.log(response.data.data);
+          })
+          .catch(error => {
+            // console.log(error)
+            this.error = error
+          })
+          .finally(() => {
+            this.loading = false;
+          })
+    }
+  },
+  mounted() {
+    this.getData()
   }
 }
+
 </script>
 
 <style scoped>
