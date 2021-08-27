@@ -1,7 +1,7 @@
 <template>
 <div>
   <b-table :data="resellers" :columns="columns">
-    <Reseller v-for="reseller in resellers" :key="reseller.id" :name="reseller.name" :description="reseller.description" :created_at="reseller.created_at" :updated_at="reseller.updated_at" />
+    <Reseller v-for="reseller in resellers" :key="reseller.id" :reseller:"reseller" />
   </b-table>
 </div>
 </template>
@@ -77,10 +77,4 @@ export default{
     }
   }
 }
-
 </script>
-
-
-<style scoped>
-
-</style>

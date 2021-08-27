@@ -1,6 +1,5 @@
 <template>
   <div>
-
   </div>
 </template>
 
@@ -9,17 +8,7 @@
 export default {
   name: 'Reseller',
   props: {
-    id: Number,
-    name: String,
-    description: String,
-    latitude: Number,
-    longitude: Number,
-    created_at: String,
-    updated_at: String
+    reseller: Object
   }
 }
 </script>
-
-<style scoped>
-
-</style>
