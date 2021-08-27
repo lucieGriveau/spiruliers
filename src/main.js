@@ -46,7 +46,7 @@ const routes = [
   { path: '/customers', component: CustomersList }, //routes pour customers qui affiche le composant CustomersList
   { path: '/supplier', component: Supplier }, //routes pour supplier qui affiche le composant Supplier
   { path: '/reseller', component: Reseller }, //routes pour reseller qui affiche le composant Reseller
-  { path: '/customer', component: Customer }, //routes pour customer qui affiche le composant Customer
+  { path: '/customer/:id', component: Customer, name: 'Customer', props: true }, //routes pour customer qui affiche le composant Customer
   { path: '/suppliers/map', component: SuppliersMap }, //routes pour suppliers qui affiche la map
 ]
 

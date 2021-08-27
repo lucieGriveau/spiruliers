@@ -1,11 +1,27 @@
 <template>
   <div>
-    <b-table :data="customer" :columns="columns" >
-    <!--<h2>Email: {{ customer.email }}</h2>
-    <h2>Code postal: {{ customer.postalCode }}</h2>
-    <h2>Adresse: {{ customer.address }}</h2>
-    <h2>Numéro de téléphone: {{ customer.phoneNumber }}</h2>-->
-    </b-table>
+    <div class="card">
+      <div class="card-content">
+
+        <div class="media">
+          <div class="media-left">
+            <figure class="customer_picture">
+              <img src="" alt="Placeholder image">
+            </figure>
+          </div>
+          <div class="media-content">
+            <h1 class="fist_name">{{ customer.firstname + ' ' + customer.lastname }}</h1>
+            <p class="subtitle is-6">Email: {{ customer.email }}</p>
+          </div>
+        </div>
+
+        <div class="content">
+          <a>Adresse:{{ customer.address + ' ' + customer.postalCode + ' ' + customer.city }}</a>
+          <p> {{ customer.phoneNumber }}</p>
+        </div>
+
+      </div>
+    </div>
   </div>
 </template>
 
@@ -13,30 +29,14 @@
 export default {
   name: "Customer",
   props:{
-    customer: Object
+    customer: Object,
   },
-  columns: [
-        {
-          field: 'customer.email',
-          label: 'Email',
-          centered: true
-        },
-        {
-          field: 'customer.postalCode',
-          label: 'Postal code',
-          centered: true
-        },
-        {
-          field: 'customer.address',
-          label: 'Adress',
-          centered: true
-        },
-        {
-          field: 'customer.phoneNumber',
-          label: 'Phone number',
-          centered: true
-        },
-  ]
+  data(){
+    return {
+
+    }
+  }
+
 }
 </script>
 
