@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>{{ msg }}</h1>
+    <h1>Welcome to Spiruliars</h1>
 
     <!--<ResellersList />
     <CustomersList />
@@ -15,9 +15,9 @@
 
 export default {
   name: 'Home',
-  props: {
-    msg: String
-  },
+  // props: {
+  //   msg: String
+  // },
   components: {
     // CustomersList,
     // ResellersList,

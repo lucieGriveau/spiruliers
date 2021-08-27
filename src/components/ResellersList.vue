@@ -3,13 +3,14 @@
   <b-table :data="resellers" :columns="columns">
     <Reseller v-for="reseller in resellers" :key="reseller.id" :reseller="reseller" />
   </b-table>
+  <router-link :to="{ name: 'map', params:{ datas: resellers} }">Voir carte</router-link>
 </div>
 </template>
 
 <script>
 import Reseller from './Reseller.vue';
 
-export default{
+export default {
   name: "ResellersList",
   components: {
     Reseller

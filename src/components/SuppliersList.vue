@@ -3,30 +3,6 @@
 
   <h1>Suppliers List</h1>
 
-<!--  <b-table-->
-<!--      :data="suppliers"-->
-<!--      :columns="columns"-->
-<!--      :debounce-search="1000">-->
-
-
-
-<!--  <p v-for="supplier in suppliers"-->
-<!--            :key="supplier.id"-->
-<!--            :supplier="supplier">-->
-<!--    <router-link :to="{name: 'Supplier', params: {id: supplier.id, supplier:supplier}}">-->
-<!--      {{supplier.name}}</router-link></p>-->
-<!--&lt;!&ndash;            selectable&ndash;&gt;-->
-<!--&lt;!&ndash;            @select="selected"&ndash;&gt;-->
-
-<!--&lt;!&ndash;    <template slot="actions" slot-scope="">&ndash;&gt;-->
-<!--&lt;!&ndash;      <b-button> Edit </b-button>&ndash;&gt;-->
-<!--&lt;!&ndash;      <b-button> Delete </b-button>&ndash;&gt;-->
-<!--&lt;!&ndash;    </template>&ndash;&gt;-->
-
-<!--  </b-table>-->
-
-<!--  <router-link to="/supplier/:id">Fournisseur</router-link>-->
-
   <b-table :data="suppliers">
     <b-table-column field="id" label="ID" :td-attrs="columnTdAttrs" numeric v-slot="props">
       {{ props.row.id }}
@@ -70,11 +46,7 @@ export default {
   // components: {
   //   Supplier
   // },
-  // methods: {
-  //   selected() {
-  //     this.$router.push({ path: '/supplier/:id'})
-  //   }
-  // },
+
 data () {
   return {
     suppliers: [
@@ -137,12 +109,6 @@ data () {
         label: 'Status',
         centered: true
       },
-      // {
-      //   field: 'but',
-      //   label: 'Plus',
-      //   centered: true,
-      //
-      // },
     ]
 
 
