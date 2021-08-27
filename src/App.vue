@@ -6,9 +6,9 @@
       <router-link to="/resellers">Revendeurs</router-link>
       <router-link to="/customers">Clients</router-link>
     </div>
-
+    <Home msg="Welcome to Spiruliers"/>
     <img alt="Vue logo" src="./assets/spiruline.jpg" width="250px">
-    <Home msg="Welcome to Spiruliars"/>
+
     <router-view></router-view> <!--Affichage du contenu des routes-->
   </div>
 </template>

@@ -23,7 +23,7 @@ const routes = [
   { path: '/suppliers', component: SuppliersList }, //routes pour suppliers qui affiche le composant SuppliersList
   { path: '/resellers', component: ResellersList }, //routes pour resellers qui affiche le composant ResellersList
   { path: '/customers', component: CustomersList }, //routes pour customers qui affiche le composant CustomersList
-  { path: '/supplier', component: Supplier }, //routes pour supplier qui affiche le composant Supplier
+  { path: '/supplier/:id', component: Supplier, name: 'Supplier', props: true }, //routes pour supplier qui affiche le composant Supplier
   { path: '/reseller', component: Reseller }, //routes pour reseller qui affiche le composant Reseller
   { path: '/customer', component: Customer }, //routes pour customer qui affiche le composant Customer
 ]
