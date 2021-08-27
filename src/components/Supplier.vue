@@ -12,10 +12,8 @@
             </figure>
           </div>
           <div class="media-content">
-            <h1 class="name">{{ supplier.firstname}}</h1>
-            <p class="subtitle is-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Phasellus nec iaculis mauris.</p>
-            <h1 class="contact">33 4 02154863 - spirufly@ehnois.fr</h1>
+            <h1 class="name">{{ supplier.name}}</h1>
+            <h1 class="contact">33 4 02154863 - spisupplier@ehnois.fr</h1>
           </div>
         </div>
 
@@ -44,10 +42,17 @@ export default {
     supplier: Object
 
   },
-  data () {
-    return {
+  data() {
+    return {}
+  },
+
+  mounted() {
+    if (this.supplier === undefined) {
+      console.log(this.$route.params.id)
+    }
+
+  }
 }
-  }}
 </script>
 
 <style scoped>
