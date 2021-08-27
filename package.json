@@ -10,8 +10,10 @@
   "dependencies": {
     "buefy": "^0.9.9",
     "core-js": "^3.6.5",
+    "leaflet": "^1.7.1",
     "vue": "^2.6.11",
-    "vue-router": "^3.5.2"
+    "vue-router": "^3.5.2",
+    "vue2-leaflet": "^2.7.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

@@ -3,13 +3,17 @@
   <b-table :data="resellers" :columns="columns">
     <Reseller v-for="reseller in resellers" :key="reseller.id" :reseller="reseller" />
   </b-table>
+  <l-map style="height: 300px" :zoom="zoom" :center="center">
+    <l-tile-layer :url="url" :attribution="attribution"></l-tile-layer>
+    <l-marker :lat-lng="markerLatLng"></l-marker>
+  </l-map>
 </div>
 </template>
 
 <script>
 import Reseller from './Reseller.vue';
 
-export default{
+export default {
   name: "ResellersList",
   components: {
     Reseller
