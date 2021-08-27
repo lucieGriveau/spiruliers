@@ -1,7 +1,20 @@
 <template>
 <div>
   <b-table :data="resellers" :columns="columns">
-    <Reseller v-for="reseller in resellers" :key="reseller.id" :reseller="reseller" />
+    <b-table-column>
+      <Reseller v-for="reseller in resellers" :key="reseller.id" :reseller="reseller" />
+    </b-table-column>
+    <b-table-column field="action" label="Action" v-slot="props">
+      <router-link :to="{
+            name:'Reseller',
+            params:{
+              id:props.row.id,
+              customer:props.row,
+            }
+          }">
+        <b-button type="is-primary">Voir</b-button>
+      </router-link>
+    </b-table-column>
   </b-table>
   <router-link :to="{ name: 'map', params:{ datas: resellers} }">Voir carte</router-link>
 </div>
@@ -58,10 +71,12 @@ export default {
         {
           field: 'name',
           label: 'Nom',
+          centered: true
         },
         {
           field: 'description',
           label: 'Description',
+          centered: true
         },
         {
           field: 'created_at',

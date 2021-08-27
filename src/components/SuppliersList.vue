@@ -3,54 +3,82 @@
 
   <h1>Suppliers List</h1>
 
-  <b-table
-      :data="suppliers"
-      :columns="columns"
-      :debounce-search="1000">
-
-
-  <Supplier v-for="supplier in suppliers"
-            :key="supplier.id"
-            :name="supplier.name"
-            :checkedAt="supplier.checkedAt"
-            :latitude="supplier.latitude"
-            :longitude="supplier.longitude"
-            />
+  <b-table :data="suppliers">
+    <b-table-column field="id" label="ID" :td-attrs="columnTdAttrs" numeric v-slot="props">
+      {{ props.row.id }}
+    </b-table-column>
+    <b-table-column field="name" label="Supplier" :td-attrs="columnTdAttrs" numeric v-slot="props">
+      {{ props.row.name }}
+    </b-table-column>
+    <b-table-column field="checkedAt" label="Date d'Insertion" :td-attrs="columnTdAttrs" numeric v-slot="props">
+      {{ props.row.checkedAt }}
+    </b-table-column>
+    <b-table-column field="status" label="Status" :td-attrs="columnTdAttrs" numeric v-slot="props">
+      {{ props.row.status }}
+    </b-table-column>
+    <b-table-column field="action" label="Action" centered="true" v-slot="props">
+      <router-link
+          :to="{
+          name:'Supplier',
+          params:{
+            id:props.row.id,
+            supplier:props.row,
+            }
+          }"><b-button type="is-primary">Voir</b-button>
+      </router-link>
+    </b-table-column>
   </b-table>
-<router-link :to="{ name: 'map', params:{ datas: suppliers} }">Voir carte</router-link>
 
-  </div>
+
+
+
+
+</div>
 </template>
 
 <script>
 
 
-import Supplier from "./Supplier";
+// import Supplier from "./Supplier";
 
 export default {
   name: "SuppliersList",
-  components: {
-    Supplier
-  },
+  // components: {
+  //   Supplier
+  // },
+
 data () {
   return {
     suppliers: [
       {
         id: 1,
-        name: 'SpiFourni',
+        name: 'Fourni',
         checkedAt: '26-08-2021',
         status: 'actif',
-        latitude: 47.413220,
-        longitude: -1.219482,
+        latitude: '35°',
+        longitude: '45',
+        but: <template slot="actions">
+          <b-button>Default</b-button>
+        </template>
       },
       {
         id: 2,
-        name: 'SuperSpi',
+        name: 'Super Spi',
         checkedAt: '26-08-2021',
         status: 'actif',
-        latitude: 46.193220,
-        longitude: 4.82,
-      }
+        latitude: '35°',
+        longitude: '45',
+      },
+      {
+        id: 3,
+        name: 'Web Spi',
+        checkedAt: '26-08-2021',
+        status: 'actif',
+        latitude: '35°',
+        longitude: '45',
+      },
+
+
     ],
     columns: [
       {
@@ -66,24 +94,21 @@ data () {
         field: 'name',
         label: 'Supplier',
         searchable: true,
-        centered: true
+        centered: true,
+        selectable: true,
       },
       {
         field: 'checkedAt',
         label: "Date d'Insertion",
-        searchable: true,
+        // searchable: true,
         centered: true
       },
-      // {
-      //   field: 'date',
-      //   label: 'Ville',
-      //   centered: true
-      // },
+
       {
         field: 'status',
         label: 'Status',
         centered: true
-      }
+      },
     ]
 
 
