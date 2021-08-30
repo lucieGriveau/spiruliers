@@ -58,10 +58,6 @@ export default {
 
 <style scoped>
 
-  b-field{
-
-  }
-
   #edit_form {
     border: #2d654e;
   }
