@@ -44,10 +44,9 @@ const routes = [
   { path: '/resellers', component: ResellersList }, //routes pour resellers qui affiche le composant ResellersList
   { path: '/customers', component: CustomersList }, //routes pour customers qui affiche le composant CustomersList
   { path: '/supplier/:id', component: Supplier, name: 'Supplier', props: true }, //routes pour supplier qui affiche le composant Supplier
-  { path: '/reseller', component: Reseller }, //routes pour reseller qui affiche le composant Reseller
-  { path: '/customer', component: Customer }, //routes pour customer qui affiche le composant Customer
-  { path: '/map', component: Map, props:true, name: 'map'}, //route qui affiche la map
+  { path: '/reseller/:id', component: Reseller, name: 'Reseller', props: true }, //routes pour reseller qui affiche le composant Reseller
   { path: '/customer/:id', component: Customer, name: 'Customer', props: true }, //routes pour customer qui affiche le composant Customer
+  { path: '/map', component: Map, props:true, name: 'map'}, //route qui affiche la map
 ]
 
 const router = new VueRouter({ //instancier la VueRouter (from 'vue-router')
