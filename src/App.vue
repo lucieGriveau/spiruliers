@@ -6,20 +6,19 @@
       <router-link to="/resellers">Revendeurs</router-link>
       <router-link to="/customers">Clients</router-link>
     </div>
-    <Home msg="Welcome to Spiruliers"/>
-    <img alt="Vue logo" src="./assets/spiruline.jpg" width="250px">
 
+    <img alt="Vue logo" src="./assets/spiruline.jpg" width="250px">
     <router-view></router-view> <!--Affichage du contenu des routes-->
   </div>
 </template>
 
 <script>
- import Home from './components/Home.vue';
+ //import Home from './components/Home.vue';
 
 export default {
   name: 'App',
   components: {
-     Home
+     //Home
   }
 }
 </script>
@@ -53,8 +52,108 @@ export default {
   margin-bottom: 50px;
 }
 
+h1 {
+  font-size: 35px;
+  color: #2d654e;
+  width: 50%;
+  margin: 0 auto;
+}
+
+h1:after {
+  display: block;
+  content: '';
+  border-bottom: solid 3px #2d654e;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+
+h1:hover:after {
+  transform: scaleX(1);
+}
+
+h1.fromRight:after {
+  transform-origin: 100% 50%;
+}
+
+h1.fromLeft:after {
+  transform-origin: 0% 50%;
+}
+
+h2{
+  margin: 0 auto;
+  margin-bottom: 50px;
+  width: 25%;
+  font-size: 25px;
+  color: #2d654e;
+  border-top: 2px solid #2d654e;
+  border-bottom: 2px solid #2d654e;
+  border-left: 50px solid #2d654e;
+  border-right: 50px solid #2d654e;
+}
+
+.table-wrapper{
+  margin-top: 50px;
+}
+
+.carte {
+  color: #000000;
+  padding: 10px 50px;
+  border: 1px solid #2d654e;
+  font-weight: bold;
+  transition: 1s;
+}
+
+.carte:active {
+  color: #ffffff;
+  padding: 10px 50px;
+  border: 1px solid #000000;
+}
+
+.carte:hover {
+  color: #ffffff;
+  padding: 15px 75px;
+  background-color: #2d654e;
+}
+
 div{
   margin-bottom: 50px;
+}
+
+.reseller-list button{
+  background-color: none;
+  color: black;
+  border: 1px solid #ffffff;
+  transition: 1s;
+}
+
+.reseller-list .see{
+  border: 1px solid #2d654e;
+}
+
+.reseller-list .see:hover{
+  border: 1px solid #2d654e;
+  background-color: #2d654e;
+  color: #ffffff;
+}
+
+.reseller-list .edit{
+  border: 1px solid #ff9800;
+}
+
+.reseller-list .edit:hover{
+  border: 1px solid #ff9800;
+  background-color: #ff9800;
+  color: #ffffff;
+}
+
+.reseller-list .del{
+  border: 1px solid red;
+}
+
+.reseller-list .del:hover{
+  border: 1px solid red;
+  background-color: red;
+  color: #ffffff;
 }
 
 </style>
