@@ -1,95 +1,92 @@
 <template>
-<div>
-  <b-table :data="resellers" :columns="columns">
-    <b-table-column>
-      <Reseller v-for="reseller in resellers" :key="reseller.id" :reseller="reseller" />
+<div class="reseller-list">
+  <h2>Resellers List</h2>
+  <router-link class="carte" :to="{ name: 'map', params:{ datas: resellers} }">Voir carte</router-link>
+  <p v-if="loading">Loading...</p>
+  <div class="prev-next">
+     <button @click="getApi(1)" class="previous">⬅️</button>
+     <button @click="getApi(2)" class="next">➡️</button>
+  </div>
+  <b-table :data="resellers">
+    <b-table-column field="id" label="ID" numeric v-slot="props">
+      {{ props.row.id }}
+    </b-table-column>
+    <b-table-column field="name" label="Reseller" numeric v-slot="props">
+      {{ props.row.name }}
+    </b-table-column>
+    <b-table-column field="description" label="Description" numeric v-slot="props">
+      {{ props.row.description }}
+    </b-table-column>
+    <b-table-column field="created_at" label="Créé le" numeric v-slot="props">
+      {{ props.row.created_at }}
+    </b-table-column>
+    <b-table-column field="updated_at" label="Dernière mise à jour" numeric v-slot="props">
+      {{ props.row.updated_at }}
     </b-table-column>
     <b-table-column field="action" label="Action" v-slot="props">
-      <router-link :to="{
-            name:'Reseller',
-            params:{
-              id:props.row.id,
-              customer:props.row,
+      <router-link
+          :to="{
+          name:'Reseller',
+          params:{
+            id:props.row.id,
+            reseller:props.row,
             }
-          }">
-        <b-button type="is-primary">Voir</b-button>
+          }"><b-button class="see">Voir</b-button>
+      </router-link>
+      <router-link
+          :to="{
+          name:'Reseller',
+          params:{
+            id:props.row.id,
+            reseller:props.row,
+            }
+          }"><b-button class="edit">Editer</b-button>
+      </router-link>
+      <router-link
+          :to="{
+          name:'Reseller',
+          params:{
+            id:props.row.id,
+            reseller:props.row,
+            }
+          }"><b-button class="del">Supprimer</b-button>
       </router-link>
     </b-table-column>
   </b-table>
-  <router-link :to="{ name: 'map', params:{ datas: resellers} }">Voir carte</router-link>
+  <div class="prev-next">
+    <button @click="getApi(1)" class="previous">⬅️</button>
+    <button @click="getApi(2)" class="next">➡️</button>
+  </div>
 </div>
 </template>
 
 <script>
-import Reseller from './Reseller.vue';
+//import Reseller from './Reseller.vue';
+import axios from "axios";
 
 export default {
   name: "ResellersList",
   components: {
-    Reseller
+    //Reseller
   },
   data() {
     return {
-      resellers: [{
-
-          id: 1,
-          name: "Heath Mayert",
-          description: "Dolorem recusandae autem officiis autem fugit quisquam aut. Deserunt placeat sapiente illum voluptate delectus.",
-          latitude: 26.720245,
-          longitude: -173.967772,
-          supplier_id: 1,
-          created_at: "1993-06-12 19:56:09",
-          updated_at: "1979-12-03 06:37:10"
-        },
-        {
-          id: 2,
-          name: "Rhea Steuber",
-          description: "Tenetur natus libero dolores tempora.",
-          latitude: 15.845808,
-          longitude: -42.065633,
-          supplier_id: 1,
-          created_at: "1971-04-27 23:23:34",
-          updated_at: "1994-12-25 19:58:15"
-        },
-        {
-          id: 3,
-          name: "Lyda Barton MD",
-          description: "Laudantium ipsam corrupti cupiditate fugiat eos. Laboriosam qui maiores distinctio praesentium ut culpa.",
-          latitude: 72.478383,
-          longitude: -124.662174,
-          supplier_id: 1,
-          created_at: "1995-09-06 09:10:40",
-          updated_at: "2010-11-26 14:56:28"
-        }
-      ],
-      columns: [{
-          field: 'id',
-          label: 'ID',
-          width: '40',
-          numeric: true
-        },
-        {
-          field: 'name',
-          label: 'Nom',
-          centered: true
-        },
-        {
-          field: 'description',
-          label: 'Description',
-          centered: true
-        },
-        {
-          field: 'created_at',
-          label: 'Date de création',
-          centered: true
-        },
-        {
-          field: 'updated_at',
-          label: 'Date de mise à jour',
-          centered: true
-        }
-      ]
-
+      loading: false,
+      error: null,
+      resellers: [],
+    }
+  },
+  mounted() {
+    this.getApi();
+  },
+  methods: {
+    getApi(num){
+      this.loading = true;
+      axios
+        .get('https://heroku-campus-suppliers.herokuapp.com/api/resellers?page=' + num)
+        .then(response => (this.resellers = response.data.data))
+        .catch(error => console.log(error))
+        .finally(() => this.loading = false)
     }
   }
 }
