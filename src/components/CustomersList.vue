@@ -27,7 +27,6 @@
             :to="{
               name:'CustomerEdit',
               params:{
-                edit:props.row.edit,
                 customer:props.row,
                }
             }">
@@ -36,9 +35,11 @@
 
         <b-button type="primary-light">Supprimer</b-button>
 
-
       </b-table-column>
     </b-table>
+    <b-button type="primary-light" @click="getData(1)">Previous</b-button>
+    <b-button type="primary-light" @click="getData(2)">Next</b-button>
+
   </div>
 </template>
 
@@ -56,19 +57,20 @@ export default {
       customers: [],
       loading: false,
       error: null,
+
     }
   },
   methods: {
-    getData() {
+    getData (currentPage) {
       this.loading = true
       axios
-          .get('https://heroku-campus-suppliers.herokuapp.com/api/customers')
+          .get('https://heroku-campus-suppliers.herokuapp.com/api/customers?page=' + currentPage)
           .then(response => {
             this.customers = response.data.data;
             // console.log(this.customers);
             // console.log(response);
             // console.log(response.data);
-            // console.log(response.data.data);
+            // console.log(response.data);
           })
           .catch(error => {
             // console.log(error)
@@ -77,10 +79,26 @@ export default {
           .finally(() => {
             this.loading = false;
           })
-    }
+    },
+    // getMoreData() {
+    //   this.loading = true
+    //   axios
+    //       .get('https://heroku-campus-suppliers.herokuapp.com/api/customers?page=2')
+    //       .then(response => {
+    //         this.customers = response.data.data;
+    //       })
+    //       .catch(error => {
+    //         // console.log(error)
+    //         this.error = error
+    //       })
+    //       .finally(() => {
+    //         this.loading = false;
+    //       })
+    // }
   },
   mounted() {
     this.getData()
+    // this.getMoreData()
   }
 }
 
