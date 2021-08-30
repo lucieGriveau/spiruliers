@@ -10,6 +10,7 @@ import Supplier from './components/Supplier.vue'
 import Reseller from './components/Reseller.vue'
 import Customer from './components/Customer.vue'
 import Map from './components/Map.vue'
+import CustomerEdit from './components/CustomerEdit.vue'
 
 // Map Leaflet
 import 'leaflet/dist/leaflet.css'
@@ -47,6 +48,7 @@ const routes = [
   { path: '/reseller/:id', component: Reseller, name: 'Reseller', props: true }, //routes pour reseller qui affiche le composant Reseller
   { path: '/customer/:id', component: Customer, name: 'Customer', props: true }, //routes pour customer qui affiche le composant Customer
   { path: '/map', component: Map, name: 'map', props: true, }, //route qui affiche la map
+  { path: '/customer/:edit', component: CustomerEdit, name: 'CustomerEdit', props: true }, //routes pour customer qui affiche le composant CustomerEdit avec formulaire pour editer
 ]
 
 const router = new VueRouter({ //instancier la VueRouter (from 'vue-router')

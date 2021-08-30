@@ -12,7 +12,7 @@
       <b-table-column field="lastname" label="Last name" v-slot="props">
         {{ props.row.lastName }}
       </b-table-column>
-      <b-table-column field="action" label="Action" v-slot="props">
+      <b-table-column field="action" label="Actions" v-slot="props">
         <router-link
             :to="{
               name:'Customer',
@@ -21,33 +21,23 @@
                 customer:props.row,
               }
             }">
-          <b-button type="is-primary">Voir</b-button>
+          <b-button type="primary-light">Voir</b-button>
         </router-link>
+        <router-link
+            :to="{
+              name:'CustomerEdit',
+              params:{
+                edit:props.row.edit,
+                customer:props.row,
+               }
+            }">
+            <b-button type="primary-light">Editer</b-button>
+        </router-link>
+
+        <b-button type="primary-light">Supprimer</b-button>
+
+
       </b-table-column>
-      <!--      <b-table-column field="edit" label="Edit" v-slot="props">-->
-      <!--        <router-link-->
-      <!--            :to="{-->
-      <!--              name:'Edit',-->
-      <!--              params:{-->
-      <!--                id:props.row.id,-->
-      <!--                customer:props.row,-->
-      <!--              }-->
-      <!--            }">-->
-      <!--          <b-button type="is-primary">Editer</b-button>-->
-      <!--        </router-link>-->
-      <!--      </b-table-column>-->
-      <!--      <b-table-column field="delete" label="Delete" v-slot="props">-->
-      <!--        <router-link-->
-      <!--            :to="{-->
-      <!--              name:'Delete',-->
-      <!--              params:{-->
-      <!--                id:props.row.id,-->
-      <!--                customer:props.row,-->
-      <!--              }-->
-      <!--            }">-->
-      <!--          <b-button type="is-primary">Supprimer</b-button>-->
-      <!--        </router-link>-->
-      <!--      </b-table-column>-->
     </b-table>
   </div>
 </template>
