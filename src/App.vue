@@ -7,7 +7,7 @@
       <router-link to="/customers">Clients</router-link>
     </div>
 <!--    <Home msg="Welcome to Spiruliers"/>-->
-    <img alt="Vue logo" src="./assets/spiruline.jpg" width="250px">
+    <img alt="Vue logo" src="https://static.hitek.fr/img/actualite/i_alcool-poudre-autorise-par-erreur.jpg" width="50%">
     <router-view></router-view> <!--Affichage du contenu des routes-->
   </div>
 </template>
@@ -24,6 +24,12 @@ export default {
 </script>
 
 <style>
+
+.app img{
+  border-radius: 150px;
+  border: 2px solid #2d654e;
+  margin-bottom: 50px;
+}
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -156,5 +162,34 @@ div{
   background-color: red;
   color: #ffffff;
 }
+
+.prev-next{
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.prev-next button{
+  background-color: none;
+  color: black;
+  font-size: 25px;
+}
+
+.one p{
+  margin-bottom: 20px;
+}
+
+.one .texts{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.one .texts .box{
+  width: 49%;
+  margin: 0;
+}
+
 
 </style>

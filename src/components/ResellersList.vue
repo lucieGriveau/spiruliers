@@ -3,6 +3,10 @@
   <h2>Resellers List</h2>
   <router-link class="carte" :to="{ name: 'map', params:{ datas: resellers} }">Voir carte</router-link>
   <p v-if="loading">Loading...</p>
+  <div class="prev-next">
+     <button @click="getApi(1)" class="previous">⬅️</button>
+     <button @click="getApi(2)" class="next">➡️</button>
+  </div>
   <b-table :data="resellers">
     <b-table-column field="id" label="ID" numeric v-slot="props">
       {{ props.row.id }}
@@ -49,6 +53,10 @@
       </router-link>
     </b-table-column>
   </b-table>
+  <div class="prev-next">
+    <button @click="getApi(1)" class="previous">⬅️</button>
+    <button @click="getApi(2)" class="next">➡️</button>
+  </div>
 </div>
 </template>
 
@@ -69,12 +77,17 @@ export default {
     }
   },
   mounted() {
-    this.loading = true;
-    axios
-      .get('https://heroku-campus-suppliers.herokuapp.com/api/resellers')
-      .then(response => (this.resellers = response.data.data))
-      .catch(error => console.log(error))
-      .finally(() => this.loading = false)
+    this.getApi();
+  },
+  methods: {
+    getApi(num){
+      this.loading = true;
+      axios
+        .get('https://heroku-campus-suppliers.herokuapp.com/api/resellers?page=' + num)
+        .then(response => (this.resellers = response.data.data))
+        .catch(error => console.log(error))
+        .finally(() => this.loading = false)
+    }
   }
 }
 </script>
