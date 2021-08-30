@@ -12,6 +12,7 @@ import Customer from './components/Customer.vue'
 import Map from './components/Map.vue'
 import CustomerEdit from './components/CustomerEdit.vue'
 import EditSupplier from "./components/EditSupplier.vue";
+import CustomerUpdate from './components/CustomerUpdate.vue'
 
 // Map Leaflet
 import 'leaflet/dist/leaflet.css'
@@ -49,8 +50,9 @@ const routes = [
   { path: '/reseller/:id', component: Reseller, name: 'Reseller', props: true }, //routes pour reseller qui affiche le composant Reseller
   { path: '/customer/:id', component: Customer, name: 'Customer', props: true }, //routes pour customer qui affiche le composant Customer
   { path: '/map', component: Map, name: 'map', props: true, }, //route qui affiche la map
-  { path: '/customer/:edit', component: CustomerEdit, name: 'CustomerEdit', props: true }, //routes pour customer qui affiche le composant CustomerEdit avec formulaire pour editer
-  { path: '/supplier/:edit', component: EditSupplier, name: 'EditSupplier', props: true }, //route pour le composant d'edition des fiches "supplier".
+  { path: '/supplier/edit', component: EditSupplier, name: 'EditSupplier', props: true }, //route pour le composant d'edition des fiches "supplier".
+  { path: '/customer/edit', component: CustomerEdit, name: 'CustomerEdit', props: true }, //routes pour customer qui affiche le composant CustomerEdit avec formulaire pour ajouter un Customer
+  { path: '/customer/update/:id', component: CustomerUpdate, name: 'CustomerUpdate', props: true }, //routes pour customer qui affiche le composant CustomerUpdate avec formulaire pour modifier un Customer
 ]
 
 const router = new VueRouter({ //instancier la VueRouter (from 'vue-router')

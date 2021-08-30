@@ -10,16 +10,24 @@
           <!--            </figure>-->
           <!--          </div>-->
           <div class="media-content">
-            <h1 class="fist_name">{{ test.firstName + ' ' + test.lastName }}</h1>
-            <p class="subtitle is-6">Email: {{ test.email }}</p>
+            <h1 class="fist_name">{{ customerData.firstName + ' ' + customerData.lastName }}</h1>
+            <p class="subtitle is-6">Email: {{ customerData.email }}</p>
           </div>
         </div>
 
         <div class="content">
-          <a>Adresse:{{ test.address + ' ' + test.postalCode + ' ' + test.city }}</a>
-          <p>{{ test.phoneNumber }}</p>
+          <a>Adresse:{{ customerData.address + ' ' + customerData.codePostal + ' ' + customerData.city }}</a>
+          <p>{{ customerData.phoneNumber }}</p>
         </div>
 
+      </div>
+    </div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content">
+          <h1 class="fist_name">Resellers</h1>
+          <p class="">Email: {{ customerData.reseller.name }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -35,7 +43,7 @@ export default {
   },
   data() {
     return {
-      test: {}
+      customerData: {}
     }
   },
   methods: {
@@ -44,8 +52,8 @@ export default {
       axios
           .get('https://heroku-campus-suppliers.herokuapp.com/api/customers/' + this.$route.params.id)
           .then(response => {
-            this.test = response.data;
-            // console.log(response.data.data);
+            this.customerData = response.data;
+            // console.log(response.data);
           })
           .catch(error => {
             // console.log(error)
@@ -58,10 +66,10 @@ export default {
   },
   mounted() {
     if (this.customer === undefined) {
-      console.log(this.$route.params.id);
+      //console.log(this.$route.params.id);
       this.getData()
     } else {
-      this.test = this.customer
+      this.customerData = this.customer
     }
   }
 }

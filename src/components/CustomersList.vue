@@ -2,6 +2,20 @@
   <div>
     <h1>Customers list</h1><br>
     <p v-if="loading">Loading...</p>
+
+    <div>
+      <p>Pour ajouter un client, click sur le bouton ajouter</p>
+      <router-link
+          :to="{
+              name:'CustomerEdit',
+              params:{
+                id:customers.id,
+                customer:customers,
+              }
+            }">
+        <b-button type="primary-light">Ajouter</b-button>
+      </router-link>
+    </div>
     <b-table :data="customers">
       <b-table-column field="id" label="ID" width="40" numeric v-slot="props">
         {{ props.row.id }}
@@ -25,20 +39,23 @@
         </router-link>
         <router-link
             :to="{
-              name:'CustomerEdit',
+              name:'CustomerUpdate',
               params:{
+                id:props.row.id,
                 customer:props.row,
                }
             }">
-            <b-button type="primary-light">Editer</b-button>
+            <b-button type="primary-light">Modifier</b-button>
         </router-link>
 
         <b-button type="primary-light">Supprimer</b-button>
 
       </b-table-column>
     </b-table>
-    <b-button type="primary-light" @click="getData(1)">Previous</b-button>
-    <b-button type="primary-light" @click="getData(2)">Next</b-button>
+    <div>
+      <b-button type="primary-light" @click="getData(1)">Previous</b-button>
+      <b-button type="primary-light" @click="getData(2)">Next</b-button>
+    </div>
 
   </div>
 </template>
@@ -52,12 +69,14 @@ export default {
   components: {
     //Customer
   },
+  props:{
+
+  },
   data() {
     return {
       customers: [],
       loading: false,
       error: null,
-
     }
   },
   methods: {

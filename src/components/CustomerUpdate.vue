@@ -1,48 +1,48 @@
 <template>
   <section id="edit_form">
-    <h1>Edit customer</h1>
+    <h1>Update customer</h1>
     <b-field label="First name">
-      <b-input :value="dataEdit.firstName"
+      <b-input :value="dataUpdate.firstName"
                type="text"
                maxlength="30">
       </b-input>
     </b-field>
 
     <b-field label="Last name">
-      <b-input :value="dataEdit.lastName"
+      <b-input :value="dataUpdate.lastName"
                type="text"
                maxlength="30">
       </b-input>
     </b-field>
 
     <b-field label="Email">
-      <b-input :value="dataEdit.email"
+      <b-input :value="dataUpdate.email"
                type="email"
                maxlength="30">
       </b-input>
     </b-field>
 
     <b-field label="Adress">
-      <b-input :value="dataEdit.address"
+      <b-input :value="dataUpdate.address"
                type="text"
                maxlength="30"></b-input>
     </b-field>
 
     <b-field label="Postal code">
-      <b-input :value="dataEdit.codePostal"
+      <b-input :value="dataUpdate.codePostal"
                type="text"
                maxlength="5"></b-input>
     </b-field>
 
     <b-field label="City">
-      <b-input :value="dataEdit.city"
+      <b-input :value="dataUpdate.city"
                type="text"
                maxlength="30"></b-input>
     </b-field>
 
     <b-field>
       <router-link to="/customers">
-        <b-button type="primary-light">Ajouter</b-button>
+        <b-button type="primary-light">Enregistrer</b-button>
       </router-link>
     </b-field>
   </section>
@@ -52,22 +52,22 @@
 import axios from "axios";
 
 export default {
-  name: "CustomerEdit",
+  name: "CustomerUpdate",
   props: {
     customer: Object
   },
   data() {
     return {
-      dataEdit: {}
+      dataUpdate: {}
     }
   },
   methods: {
     getData() {
       this.loading = true
       axios
-          .post('https://heroku-campus-suppliers.herokuapp.com/api/customers')
+          .get('https://heroku-campus-suppliers.herokuapp.com/api/customers/' + this.$route.params.id)
           .then(response => {
-            this.dataEdit = response.data;
+            this.dataUpdate = response.data;
             // console.log(response.data);
           })
           .catch(error => {
@@ -80,15 +80,20 @@ export default {
     }
   },
   mounted() {
-    this.getData()
+    if (this.customer === undefined) {
+      //console.log(this.$route.params.id);
+      this.getData()
+    } else {
+      this.dataUpdate = this.customer
+    }
   }
 }
 </script>
 
 <style scoped>
 
-  #edit_form {
-    border: #2d654e;
-  }
+#edit_form {
+  border: #2d654e;
+}
 
 </style>
