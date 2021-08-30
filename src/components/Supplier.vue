@@ -7,9 +7,9 @@
 
         <div class="media">
           <div class="media-left">
-            <figure class="customer_picture">
-              <img src="" alt="Placeholder image">
-            </figure>
+<!--            <figure class="customer_picture">-->
+<!--              <img src="" alt="Placeholder image">-->
+<!--            </figure>-->
           </div>
           <div class="media-content">
             <h1 class="name">{{ supplier.name}}</h1>
