@@ -28,4 +28,31 @@ export default {
 
 <style>
 
+h1 {
+  font-size: 35px;
+  color: #2d654e;
+  width: 50%;
+  margin: 0 auto;
+}
+
+h1:after {
+  display: block;
+  content: '';
+  border-bottom: solid 3px #2d654e;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+
+h1:hover:after {
+  transform: scaleX(1);
+}
+
+h1.fromRight:after {
+  transform-origin: 100% 50%;
+}
+
+h1.fromLeft:after {
+  transform-origin: 0% 50%;
+}
+
 </style>
