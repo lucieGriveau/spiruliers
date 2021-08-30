@@ -6,19 +6,19 @@
       <router-link to="/resellers">Revendeurs</router-link>
       <router-link to="/customers">Clients</router-link>
     </div>
-
+<!--    <Home msg="Welcome to Spiruliers"/>-->
     <img alt="Vue logo" src="./assets/spiruline.jpg" width="250px">
     <router-view></router-view> <!--Affichage du contenu des routes-->
   </div>
 </template>
 
 <script>
- //import Home from './components/Home.vue';
+ // import Home from './components/Home.vue';
 
 export default {
   name: 'App',
   components: {
-     //Home
+     // Home
   }
 }
 </script>
@@ -52,14 +52,14 @@ export default {
   margin-bottom: 50px;
 }
 
-h1 {
+body h1 {
   font-size: 35px;
   color: #2d654e;
   width: 50%;
   margin: 0 auto;
 }
 
-h1:after {
+body h1:after {
   display: block;
   content: '';
   border-bottom: solid 3px #2d654e;
@@ -67,22 +67,23 @@ h1:after {
   transition: transform 250ms ease-in-out;
 }
 
-h1:hover:after {
+body h1:hover:after {
   transform: scaleX(1);
 }
 
-h1.fromRight:after {
+body h1.fromRight:after {
   transform-origin: 100% 50%;
 }
 
-h1.fromLeft:after {
+body h1.fromLeft:after {
   transform-origin: 0% 50%;
 }
 
-h2{
+body h2{
+  padding: 25px 50px;
   margin: 0 auto;
   margin-bottom: 50px;
-  width: 25%;
+  width: 50%;
   font-size: 25px;
   color: #2d654e;
   border-top: 2px solid #2d654e;

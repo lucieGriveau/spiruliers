@@ -1,11 +1,11 @@
 <template>
-<div class="home">
-  <h1>💊 Welcome to Spiruliars 💊</h1>
+  <div class="home">
+    <h1>Welcome to Spiruliars</h1>
 
-  <!--<ResellersList />
+    <!--<ResellersList />
     <CustomersList />
     <SuppliersList />-->
-</div>
+  </div>
 </template>
 
 <script>
