@@ -14,10 +14,7 @@
         <h3>Mis à jour le : </h3>
         <p>{{ reseller.updated_at }}</p>
       </div>
-
     </div>
-
-
   </div>
 </template>
 
