@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Welcome to Spiruliars</h1>
+    <h1>💊 Welcome to Spiruliars 💊</h1>
 
     <!--<ResellersList />
     <CustomersList />
