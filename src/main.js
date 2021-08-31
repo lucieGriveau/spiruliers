@@ -10,9 +10,10 @@ import Supplier from './components/Supplier.vue'
 import Reseller from './components/Reseller.vue'
 import Customer from './components/Customer.vue'
 import Map from './components/Map.vue'
-import CustomerEdit from './components/CustomerEdit.vue'
+import AddCustomer from './components/AddCustomer.vue'
+import UpdateCustomer from './components/UpdateCustomer.vue'
 import EditSupplier from "./components/EditSupplier.vue";
-import CustomerUpdate from './components/CustomerUpdate.vue'
+
 
 // Map Leaflet
 import 'leaflet/dist/leaflet.css'
@@ -50,9 +51,8 @@ const routes = [
 
     // CRUD Customer
   { path: '/customer/:id', component: Customer, name: 'Customer', props: true }, // Read
-  { path: '/customer/edit', component: CustomerEdit, name: 'CustomerEdit', props: true }, // Create
-  { path: '/customer/update/:id', component: CustomerUpdate, name: 'CustomerUpdate', props: true }, // Update
-  { path: '/customer/:id', component: Customer, name: 'Customer', props: true }, // Delete
+  { path: '/customer/add', component: AddCustomer, name: 'AddCustomer', props: true }, // Create
+  { path: '/customer/update/:id', component: UpdateCustomer, name: 'UpdateCustomer', props: true }, // Update
 
     // CRUD Reseller
   { path: '/reseller/:id', component: Reseller, name: 'Reseller', props: true }, //routes pour reseller qui affiche le composant Reseller
