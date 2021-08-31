@@ -22,14 +22,39 @@
 
       </div>
     </div>
-    <div class="card-content">
-      <div class="media">
-        <div class="media-content">
-          <h1 class="fist_name">Resellers</h1>
-          <p class="">Email: {{ customerData.reseller.name }}</p>
+
+    <div class="card">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <h1 class="fist_name">Reseller</h1>
+            <p>Name: {{ customerData.reseller.name }}</p>
+            <a>Longitude: {{ customerData.reseller.longitude }}</a><br>
+            <a>Latitude: {{ customerData.reseller.latitude }}</a>
+          </div>
         </div>
       </div>
     </div>
+
+<!--    <div class="card">-->
+<!--      <div class="card-content">-->
+<!--        <div class="media">-->
+<!--          <div class="media-content">-->
+<!--            <h1 class="fist_name">Orders</h1>-->
+<!--              <table v-for="order in customerData.orders" :key="order.id">-->
+<!--                <thead>-->
+<!--                  <tr>Number:</tr>-->
+<!--                  <tr>Date:</tr>-->
+<!--                </thead>-->
+<!--                <tr>-->
+<!--                  <td>{{ order.number }}</td>-->
+<!--                  <td>{{ order.date }}</td>-->
+<!--                </tr>-->
+<!--              </table>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
   </div>
 </template>
 
