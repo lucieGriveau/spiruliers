@@ -13,15 +13,15 @@
           </div>
           <div class="media-content">
             <h1 class="name">{{ info.name}}</h1>
-<!--            I hade to change it here from supplier to info to match with the new "parameter??" I gave for the new function for the reloaded page.-->
-            <h3 class="contact">33 4 02154863</h3>
+            <h3 class="contact">Conatct: 33 4 02154863</h3>
             <h3>spisupplier@ehnois.fr</h3>
+            <a class="name">Localisation: {{ info.longitude}}{{ info.latitude}}</a> <br>
+            <br>
+            <br>
+<!--            I hade to change it here from supplier to info to match with the new "parameter??" I gave for the new function for the reloaded page.-->
+         <h3> Date d'insertion: {{ info.checkedAt }}</h3>
+          <a>{{ info.status}}</a>
           </div>
-        </div>
-
-        <div class="content">
-          <a>Status: {{ info.status}}</a>
-          <p> {{ info.checkedAt }}</p>
         </div>
 
       </div>

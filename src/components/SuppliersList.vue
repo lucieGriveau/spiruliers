@@ -1,13 +1,13 @@
 <template>
 <div>
 
-<!--  <h1>Suppliers List</h1>-->
+  <h1>Nos Fournisseurs</h1>
 
  <b-table
 
 
-:data="suppliers"
-:checkedAt="date">
+:data="suppliers">
+<!--:checkedAt="date">-->
 
 
     <b-table-column field="id" label="ID" numeric v-slot="props">
@@ -16,11 +16,12 @@
     <b-table-column field="name" label="Supplier" numeric v-slot="props" >
       {{ props.row.name }}
     </b-table-column>
-    <b-table-column field="checkedAt" label="Date d'Insertion"  numeric v-slot="props">
-      {{ props.row.checkedAt.toLocaleString()}}
+    <b-table-column field="checkedAt" label="Date d'Insertion" numeric v-slot="props" :value="formatDate()" >
+<!--      {{ date}}-->
+      {{ props.row.checkedAt}}
     </b-table-column>
-    <b-table-column field="status" label="Status" numeric v-slot="props" >
-      {{ props.row.status }}
+    <b-table-column field="status" label="Stock" numeric v-slot="props" >
+      {{ props.row.status === true? "Ok" : "Non" }}
     </b-table-column>
     <b-table-column field="action" label="" v-slot="props">
       <router-link
@@ -72,60 +73,62 @@
 </template>
 
 <script>
-import { format } from 'timeago.js';
+import  moment  from 'moment';
 import axios from "axios";
 
 
 
 export default {
   name: "SuppliersList",
-  format,
+  moment,
+  // format,
   data() {
     return {
       loading: false,
       error: null,
 
-      suppliers: [
-      ],
-
-      columns: [
-        {
-          field: 'id',
-          label: 'ID',
-          width: '100',
-          numeric: true,
-          searchable: true,
-          centered: true
-        },
-
-        {
-          field: 'name',
-          label: 'Supplier',
-          searchable: true,
-          centered: true,
-          selectable: true,
-        },
-        {
-          field: 'checkedAt',
-          label: "Date d'Insertion",
-          // searchable: true,
-          centered: true
-        },
-
-        {
-          field: 'status',
-          label: 'Status',
-          centered: true
-        },
-      ],
-    }
+      suppliers: [],
+}
+      // columns: [
+      //   {
+      //     field: 'id',
+      //     label: 'ID',
+      //     width: '100',
+      //     numeric: true,
+      //     searchable: true,
+      //     centered: true
+      //   },
+      //
+      //   {
+      //     field: 'name',
+      //     label: 'Supplier',
+      //     searchable: true,
+      //     centered: true,
+      //     selectable: true,
+      //   },
+      //   {
+      //     field: 'checkedAt',
+      //     label: "Date d'Insertion",
+      //     // searchable: true,
+      //     centered: true,
+      //
+      //   },
+      //
+      //   {
+      //     field: 'status',
+      //     label: 'Status',
+      //     centered: true
+      //   },
+      // ],
+    // }
 
   },
-  computed: { //para poder atualizar a data de atualização a cada refresh
-    date () {
-      return format(this.checkedAt, 'en_US');
-    },
-  },
+  // computed: { //para poder atualizar a data de atualização a cada refresh
+  //   date () {
+  //     return format(this.checkedAt, 'en_US');
+  //   },
+  // },
+
 
   mounted() {
 
@@ -142,6 +145,12 @@ export default {
           .catch(error => console.log(error))
           .finally(() => this.loading = false)
     },
+
+    formatDate(date) {
+      return moment(date).format('dd.mm.YYYY');
+    }
+
+
   }
 
 }
@@ -149,6 +158,17 @@ export default {
 
 </script>
 
-<style scoped>
 
+
+
+
+<style scoped>
+.button.is-primary {
+  background-color: #2d654e;
+}
+
+.button.primary-light {
+  background-color: #2d654e;
+  color: #fff
+}
 </style>

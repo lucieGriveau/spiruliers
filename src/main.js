@@ -34,12 +34,21 @@ Icon.Default.mergeOptions({
 });
 
 // Framework CSS
-import Buefy from 'buefy';
+import Buefy from 'buefy'; //after from is what the name of the folder stocked at nodes folder
 import 'buefy/dist/buefy.css';
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 Vue.use(Buefy);
+
+// import VueFilterDateParse from '@vuejs-community/vue-filter-date-parse';
+//
+// Vue.use(VueFilterDateParse);
+
+import moment from 'moment';
+
+Vue.use(moment);
+
 
 const routes = [
   { path: '/', component: Home, name:'home' }, //routes pour l'accueil qui affiche le composant Home
