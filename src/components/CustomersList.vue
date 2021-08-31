@@ -6,16 +6,23 @@
       <p>Pour ajouter un client, click sur le bouton ajouter</p>
       <router-link
           :to="{
-              name:'CustomerEdit',
+              name:'AddCustomer',
               params:{
                 id:customers.id,
                 customer:customers,
               }
             }">
-        <b-button type="primary-light">Ajouter</b-button>
+        <b-button type="is-light">Ajouter</b-button>
       </router-link>
     </div>
+
+    <div>
+      <b-button type="primary-light" @click="previousPage" v-show="currentPage-1>0">⬅</b-button>
+      <b-button type="primary-light" @click="nextPage" v-show="currentPage+1<=lastPage">➡</b-button>
+    </div>
+
     <p v-if="loading">Loading...</p>
+
     <b-table :data="customers">
       <b-table-column field="id" label="ID" numeric centered v-slot="props">
         {{ props.row.id }}
@@ -35,26 +42,27 @@
                 customer:props.row,
               }
             }">
-          <b-button type="primary-light">Voir</b-button>
+          <b-button type="is-success is-light">Voir</b-button>
         </router-link>
         <router-link
             :to="{
-              name:'CustomerUpdate',
+              name:'UpdateCustomer',
               params:{
                 id:props.row.id,
                 customer:props.row,
                }
             }">
-            <b-button type="primary-light">Modifier</b-button>
+            <b-button type="is-warning is-light">Modifier</b-button>
         </router-link>
 
-        <b-button type="primary-light">Supprimer</b-button>
+        <b-button type="is-danger is-light" @click="deleteID(props.row.id)" >Supprimer</b-button>
 
       </b-table-column>
     </b-table>
     <div>
-      <b-button type="primary-light" @click="getData(1)">Previous</b-button>
-      <b-button type="primary-light" @click="getData(2)">Next</b-button>
+      <b-button type="primary-light" @click="previousPage" v-show="currentPage-1>0">Previous</b-button>
+      <b-button type="primary-light" @click="nextPage" v-show="currentPage+1<=lastPage">Next</b-button>
+      <b-button type="primary-light" @click="finalPage" v-show="lastPage">Last</b-button>
     </div>
 
   </div>
@@ -77,15 +85,18 @@ export default {
       customers: [],
       loading: false,
       error: null,
+      currentPage: 1,
+      lastPage: 1,
     }
   },
   methods: {
-    getData (currentPage) {
+    getData () {
       this.loading = true
       axios
-          .get('https://heroku-campus-suppliers.herokuapp.com/api/customers?page=' + currentPage)
+          .get('https://heroku-campus-suppliers.herokuapp.com/api/customers?page=' + this.currentPage)
           .then(response => {
             this.customers = response.data.data;
+            this.lastPage = response.data.last_page;
             // console.log(this.customers);
             // console.log(response);
             // console.log(response.data);
@@ -96,28 +107,40 @@ export default {
             this.error = error
           })
           .finally(() => {
-            this.loading = false;
+            this.loading = false
           })
     },
-    // getMoreData() {
-    //   this.loading = true
-    //   axios
-    //       .get('https://heroku-campus-suppliers.herokuapp.com/api/customers?page=2')
-    //       .then(response => {
-    //         this.customers = response.data.data;
-    //       })
-    //       .catch(error => {
-    //         // console.log(error)
-    //         this.error = error
-    //       })
-    //       .finally(() => {
-    //         this.loading = false;
-    //       })
-    // }
+    nextPage() {
+      this.currentPage += 1
+      this.getData()
+    },
+    previousPage() {
+      this.currentPage -= 1
+      this.getData()
+    },
+    finalPage(){
+      this.currentPage = this.lastPage
+      this.getData()
+    },
+    deleteID(id){
+      // console.log(id)
+      axios
+          .delete('https://heroku-campus-suppliers.herokuapp.com/api/customers/' + id)
+              this.getData()
+          //   {
+          //       id: this.id,
+          //       firstName: this.firstName,
+          //       lastName: this.lastName,
+          //       email: this.email,
+          //       address: this.address,
+          //       codePostal: this.codePostal,
+          //       city: this.city,
+          //     },
+          // )
+    },
   },
   mounted() {
     this.getData()
-    // this.getMoreData()
   }
 }
 

@@ -5,6 +5,7 @@
       <router-link to="/suppliers">Fournisseurs</router-link>
       <router-link to="/resellers">Revendeurs</router-link>
       <router-link to="/customers">Clients</router-link>
+      <router-link to="/contact">Contact</router-link>
     </div>
 <!--    <Home msg="Welcome to Spiruliers"/>-->
     <img alt="Vue logo" src="./assets/spiruline-mdr.jpg" width="50%">
@@ -102,6 +103,10 @@ body h2{
 }
 
 .contact{
+  margin: 0 auto;
+}
+
+.formulaire{
   width: 50%;
   margin: 0 auto;
 }
