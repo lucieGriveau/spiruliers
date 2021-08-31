@@ -45,7 +45,7 @@ Vue.use(Buefy);
 const routes = [
   { path: '/', component: Home, name:'home' }, //route pour l'accueil qui affiche le composant Home
   { path: '/suppliers', component: SuppliersList, name: 'Suppliers', props: true }, //route pour suppliers qui affiche le composant SuppliersList
-  { path: '/resellers', component: ResellersList, name: 'Resellerd', props: true }, //route pour resellers qui affiche le composant ResellersList
+  { path: '/resellers', component: ResellersList, name: 'Resellers', props: true }, //route pour resellers qui affiche le composant ResellersList
   { path: '/customers', component: CustomersList, name: 'Customers', props: true }, //route pour customers qui affiche le composant CustomersList
   { path: '/map', component: Map, name: 'map', props: true, }, //route qui affiche la map
   { path: '/contact', component:Contact, name: 'Contact', props: true }, //route pour le formulaire de contact
