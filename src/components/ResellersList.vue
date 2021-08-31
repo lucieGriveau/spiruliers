@@ -2,14 +2,14 @@
 <div class="reseller-list">
   <h2>Resellers List</h2>
   <router-link class="carte" :to="{ name: 'map', params:{ datas: resellers} }">Voir carte</router-link>
-  <router-link class="carte" :to="{ name:'ResellerEdit', params:{ id:resellers.id, reseller:resellers }}">Ajouter un revendeur</router-link>
+  <router-link class="carte" :to="{ name:'addReseller', params:{ id:resellers.id, reseller:resellers }}">Ajouter un revendeur</router-link>
   <p v-if="loading">Loading...</p>
   <div class="prev-next">
-     <button @click="getApi(1)" class="previous">⬅️</button>
-     <button @click="getApi(2)" class="next">➡️</button>
+    <button @click="previousPage" v-show="currentPage-1>0" class="previous">⬅️</button>
+    <button @click="nextPage" v-show="currentPage+1<=lastPage" class="next">➡️</button>
   </div>
   <b-table :data="resellers">
-    <b-table-column field="id" label="ID" numeric v-slot="props">
+    <b-table-column field="id" label="ID" sortable numeric v-slot="props">
       {{ props.row.id }}
     </b-table-column>
     <b-table-column field="name" label="Reseller" numeric v-slot="props">
@@ -43,20 +43,12 @@
             }
           }"><b-button class="edit">Editer</b-button>
       </router-link>
-      <router-link
-          :to="{
-          name:'Reseller',
-          params:{
-            id:props.row.id,
-            reseller:props.row,
-            }
-          }"><b-button class="del">Supprimer</b-button>
-      </router-link>
+      <b-button class="del" @click="deleteID(props.row.id)">Supprimer</b-button>
     </b-table-column>
   </b-table>
   <div class="prev-next">
-    <button @click="getApi(1)" class="previous">⬅️</button>
-    <button @click="getApi(2)" class="next">➡️</button>
+    <button @click="previousPage" v-show="currentPage-1>0" class="previous">⬅️</button>
+    <button @click="nextPage" v-show="currentPage+1<=lastPage" class="next">➡️</button>
   </div>
 </div>
 </template>
@@ -72,23 +64,45 @@ export default {
   },
   data() {
     return {
+      resellers: [],
       loading: false,
       error: null,
-      resellers: [],
+      currentPage: 1,
+      lastPage: 1
     }
-  },
-  mounted() {
-    this.getApi();
   },
   methods: {
-    getApi(num){
+    getData(){
       this.loading = true;
       axios
-        .get('https://heroku-campus-suppliers.herokuapp.com/api/resellers?page=' + num)
-        .then(response => (this.resellers = response.data.data))
-        .catch(error => console.log(error))
-        .finally(() => this.loading = false)
-    }
+      .get('https://heroku-campus-suppliers.herokuapp.com/api/resellers?page=' + this.currentPage)
+      .then(response => {
+        this.resellers = response.data.data;
+        this.lastPage = response.data.last_page;
+      })
+      .catch(error => {
+        this.error = error;
+      })
+      .finally(() => {
+        this.loading = false;
+    })
+  },
+  nextPage() {
+    this.currentPage += 1;
+    this.getData();
+  },
+  previousPage() {
+    this.currentPage -= 1;
+    this.getData();
+  },
+  deleteID(id){
+    axios
+    .delete('https://heroku-campus-suppliers.herokuapp.com/api/resellers/' + id)
+    this.getData()
+  }
+},
+  mounted() {
+    this.getData()
   }
 }
 </script>
