@@ -13,7 +13,7 @@ import Map from './components/Map.vue'
 import AddCustomer from './components/AddCustomer.vue'
 import UpdateCustomer from './components/UpdateCustomer.vue'
 import EditSupplier from "./components/EditSupplier.vue";
-
+import Contact from './components/Contact.vue'
 
 // Map Leaflet
 import 'leaflet/dist/leaflet.css'
@@ -43,11 +43,12 @@ Vue.use(VueRouter)
 Vue.use(Buefy);
 
 const routes = [
-  { path: '/', component: Home, name:'home' }, //routes pour l'accueil qui affiche le composant Home
-  { path: '/suppliers', component: SuppliersList, name: 'Suppliers', props: true }, //routes pour suppliers qui affiche le composant SuppliersList
-  { path: '/resellers', component: ResellersList, name: 'Resellerd', props: true }, //routes pour resellers qui affiche le composant ResellersList
-  { path: '/customers', component: CustomersList, name: 'Customers', props: true }, //routes pour customers qui affiche le composant CustomersList
+  { path: '/', component: Home, name:'home' }, //route pour l'accueil qui affiche le composant Home
+  { path: '/suppliers', component: SuppliersList, name: 'Suppliers', props: true }, //route pour suppliers qui affiche le composant SuppliersList
+  { path: '/resellers', component: ResellersList, name: 'Resellerd', props: true }, //route pour resellers qui affiche le composant ResellersList
+  { path: '/customers', component: CustomersList, name: 'Customers', props: true }, //route pour customers qui affiche le composant CustomersList
   { path: '/map', component: Map, name: 'map', props: true, }, //route qui affiche la map
+  { path: '/contact', component:Contact, name: 'Contact', props: true }, //route pour le formulaire de contact
 
     // CRUD Customer
   { path: '/customer/:id', component: Customer, name: 'Customer', props: true }, // Read
@@ -60,6 +61,8 @@ const routes = [
   // CRUD Supplier
   { path: '/supplier/:id', component: Supplier, name: 'Supplier', props: true }, //routes pour supplier qui affiche le composant Supplier
   { path: '/supplier/edit', component: EditSupplier, name: 'EditSupplier', props: true }, //route pour le composant d'edition des fiches "supplier".
+
+
 ]
 
 const router = new VueRouter({ //instancier la VueRouter (from 'vue-router')
