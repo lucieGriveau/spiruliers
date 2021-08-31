@@ -15,7 +15,14 @@
         <b-button type="is-light">Ajouter</b-button>
       </router-link>
     </div>
+
+    <div>
+      <b-button type="primary-light" @click="previousPage" v-show="currentPage-1>0">⬅</b-button>
+      <b-button type="primary-light" @click="nextPage" v-show="currentPage+1<=lastPage">➡</b-button>
+    </div>
+
     <p v-if="loading">Loading...</p>
+
     <b-table :data="customers">
       <b-table-column field="id" label="ID" numeric centered v-slot="props">
         {{ props.row.id }}
@@ -55,6 +62,7 @@
     <div>
       <b-button type="primary-light" @click="previousPage" v-show="currentPage-1>0">Previous</b-button>
       <b-button type="primary-light" @click="nextPage" v-show="currentPage+1<=lastPage">Next</b-button>
+      <b-button type="primary-light" @click="finalPage" v-show="lastPage">Last</b-button>
     </div>
 
   </div>
@@ -99,16 +107,20 @@ export default {
             this.error = error
           })
           .finally(() => {
-            this.loading = false;
+            this.loading = false
           })
     },
     nextPage() {
-      this.currentPage += 1;
-      this.getData();
+      this.currentPage += 1
+      this.getData()
     },
     previousPage() {
-      this.currentPage -= 1;
-      this.getData();
+      this.currentPage -= 1
+      this.getData()
+    },
+    finalPage(){
+      this.currentPage = this.lastPage
+      this.getData()
     },
     deleteID(id){
       // console.log(id)

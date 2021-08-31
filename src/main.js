@@ -37,17 +37,26 @@ Icon.Default.mergeOptions({
 });
 
 // Framework CSS
-import Buefy from 'buefy';
+import Buefy from 'buefy'; //after from is what the name of the folder stocked at nodes folder
 import 'buefy/dist/buefy.css';
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
 Vue.use(Buefy);
 
+// import VueFilterDateParse from '@vuejs-community/vue-filter-date-parse';
+//
+// Vue.use(VueFilterDateParse);
+
+import moment from 'moment';
+
+Vue.use(moment);
+
+
 const routes = [
   { path: '/', component: Home, name:'home' }, //route pour l'accueil qui affiche le composant Home
   { path: '/suppliers', component: SuppliersList, name: 'Suppliers', props: true }, //route pour suppliers qui affiche le composant SuppliersList
-  { path: '/resellers', component: ResellersList, name: 'Resellerd', props: true }, //route pour resellers qui affiche le composant ResellersList
+  { path: '/resellers', component: ResellersList, name: 'Resellers', props: true }, //route pour resellers qui affiche le composant ResellersList
   { path: '/customers', component: CustomersList, name: 'Customers', props: true }, //route pour customers qui affiche le composant CustomersList
   { path: '/map', component: Map, name: 'map', props: true, }, //route qui affiche la map
   { path: '/contact', component:Contact, name: 'Contact', props: true }, //route pour le formulaire de contact
