@@ -12,6 +12,7 @@ import Customer from './components/Customer.vue'
 import Map from './components/Map.vue'
 import CustomerEdit from './components/CustomerEdit.vue'
 import CustomerUpdate from './components/CustomerUpdate.vue'
+import Contact from './components/Contact.vue'
 
 // Map Leaflet
 import 'leaflet/dist/leaflet.css'
@@ -51,6 +52,7 @@ const routes = [
   { path: '/map', component: Map, name: 'map', props: true, }, //route qui affiche la map
   { path: '/customer/edit', component: CustomerEdit, name: 'CustomerEdit', props: true }, //routes pour customer qui affiche le composant CustomerEdit avec formulaire pour ajouter un Customer
   { path: '/customer/update/:id', component: CustomerUpdate, name: 'CustomerUpdate', props: true }, //routes pour customer qui affiche le composant CustomerUpdate avec formulaire pour modifier un Customer
+  { path: '/contact', component:Contact, name: 'Contact', props: true }, //routes pour customer qui affiche le composant CustomerUpdate avec formulaire pour modifier un Customer
 ]
 
 const router = new VueRouter({ //instancier la VueRouter (from 'vue-router')
