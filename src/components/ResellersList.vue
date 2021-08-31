@@ -2,6 +2,7 @@
 <div class="reseller-list">
   <h2>Resellers List</h2>
   <router-link class="carte" :to="{ name: 'map', params:{ datas: resellers} }">Voir carte</router-link>
+  <router-link class="carte" :to="{ name:'ResellerEdit', params:{ id:resellers.id, reseller:resellers }}">Ajouter un revendeur</router-link>
   <p v-if="loading">Loading...</p>
   <div class="prev-next">
      <button @click="getApi(1)" class="previous">⬅️</button>
@@ -35,7 +36,7 @@
       </router-link>
       <router-link
           :to="{
-          name:'Reseller',
+          name:'ResellerUpdate',
           params:{
             id:props.row.id,
             reseller:props.row,
