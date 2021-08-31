@@ -46,13 +46,20 @@ const routes = [
   { path: '/suppliers', component: SuppliersList, name: 'Suppliers', props: true }, //routes pour suppliers qui affiche le composant SuppliersList
   { path: '/resellers', component: ResellersList, name: 'Resellerd', props: true }, //routes pour resellers qui affiche le composant ResellersList
   { path: '/customers', component: CustomersList, name: 'Customers', props: true }, //routes pour customers qui affiche le composant CustomersList
-  { path: '/supplier/:id', component: Supplier, name: 'Supplier', props: true }, //routes pour supplier qui affiche le composant Supplier
-  { path: '/reseller/:id', component: Reseller, name: 'Reseller', props: true }, //routes pour reseller qui affiche le composant Reseller
-  { path: '/customer/:id', component: Customer, name: 'Customer', props: true }, //routes pour customer qui affiche le composant Customer
   { path: '/map', component: Map, name: 'map', props: true, }, //route qui affiche la map
+
+    // CRUD Customer
+  { path: '/customer/:id', component: Customer, name: 'Customer', props: true }, // Read
+  { path: '/customer/edit', component: CustomerEdit, name: 'CustomerEdit', props: true }, // Create
+  { path: '/customer/update/:id', component: CustomerUpdate, name: 'CustomerUpdate', props: true }, // Update
+  { path: '/customer/:id', component: Customer, name: 'Customer', props: true }, // Delete
+
+    // CRUD Reseller
+  { path: '/reseller/:id', component: Reseller, name: 'Reseller', props: true }, //routes pour reseller qui affiche le composant Reseller
+
+  // CRUD Supplier
+  { path: '/supplier/:id', component: Supplier, name: 'Supplier', props: true }, //routes pour supplier qui affiche le composant Supplier
   { path: '/supplier/edit', component: EditSupplier, name: 'EditSupplier', props: true }, //route pour le composant d'edition des fiches "supplier".
-  { path: '/customer/edit', component: CustomerEdit, name: 'CustomerEdit', props: true }, //routes pour customer qui affiche le composant CustomerEdit avec formulaire pour ajouter un Customer
-  { path: '/customer/update/:id', component: CustomerUpdate, name: 'CustomerUpdate', props: true }, //routes pour customer qui affiche le composant CustomerUpdate avec formulaire pour modifier un Customer
 ]
 
 const router = new VueRouter({ //instancier la VueRouter (from 'vue-router')
