@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1>Customers list</h1><br>
-    <p v-if="loading">Loading...</p>
+    <h1>Customers list</h1>
 
     <div>
       <p>Pour ajouter un client, click sur le bouton ajouter</p>
@@ -16,17 +15,18 @@
         <b-button type="primary-light">Ajouter</b-button>
       </router-link>
     </div>
+    <p v-if="loading">Loading...</p>
     <b-table :data="customers">
-      <b-table-column field="id" label="ID" width="40" numeric v-slot="props">
+      <b-table-column field="id" label="ID" numeric centered v-slot="props">
         {{ props.row.id }}
       </b-table-column>
-      <b-table-column field="firstname" label="First name" v-slot="props">
+      <b-table-column field="firstname" label="First name" centered v-slot="props">
         {{ props.row.firstName }}
       </b-table-column>
-      <b-table-column field="lastname" label="Last name" v-slot="props">
+      <b-table-column field="lastname" label="Last name" centered v-slot="props">
         {{ props.row.lastName }}
       </b-table-column>
-      <b-table-column field="action" label="Actions" v-slot="props">
+      <b-table-column field="action" label="Actions" centered v-slot="props">
         <router-link
             :to="{
               name:'Customer',

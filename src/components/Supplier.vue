@@ -12,14 +12,16 @@
 <!--            </figure>-->
           </div>
           <div class="media-content">
-            <h1 class="name">{{ supplier.name}}</h1>
-            <h1 class="contact">33 4 02154863 - spisupplier@ehnois.fr</h1>
+            <h1 class="name">{{ info.name}}</h1>
+<!--            I hade to change it here from supplier to info to match with the new "parameter??" I gave for the new function for the reloaded page.-->
+            <h3 class="contact">33 4 02154863</h3>
+            <h3>spisupplier@ehnois.fr</h3>
           </div>
         </div>
 
         <div class="content">
-          <a>Status: {{ supplier.status}}</a>
-          <p> {{ supplier.checkedAt }}</p>
+          <a>Status: {{ info.status}}</a>
+          <p> {{ info.checkedAt }}</p>
         </div>
 
       </div>
@@ -34,6 +36,7 @@
 </template>
 
 <script>
+import axios from "axios"
 
 export default {
 
@@ -43,16 +46,38 @@ export default {
 
   },
   data() {
-    return {}
+    return {
+      info: {}
+    }
   },
 
   mounted() {
     if (this.supplier === undefined) {
       console.log(this.$route.params.id)
+      this.supInfo()
     }
+    else {
+      this.info = this.supplier
+     }
+    },
+
+
+
+  methods: {
+    supInfo() {
+      this.loading = true;
+      axios
+          .get('https://heroku-campus-suppliers.herokuapp.com/api/suppliers/' + this.$route.params.id)  // the logic here is that we have to recharge the data of the page we are currently.
+          // So that's why we have to pass by a full route, get all the parameters and create a new object with the info, like a new page.
+          // The opposite of what we did to show the different pages of SuppliersList.
+          .then(response => (console.log(this.info = response.data)))
+          .catch(error => console.log(error))
+          .finally(() => this.loading = false)
+    }
+  }
 
   }
-}
+
 </script>
 
 <style scoped>

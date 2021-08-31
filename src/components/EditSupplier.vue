@@ -1,8 +1,11 @@
 <template>
 <div>
-  <section>
-    <b-field label="Name">
-      <b-input value="Kevin Garvey"></b-input>
+  <br>
+  <h1> Editer la fiche du Fournisseur:</h1>
+  <br>
+    <b-field label="Nom de l'entreprise">
+      <b-input :value="name"></b-input>
+      <!-- não funciona esse name -->
     </b-field>
 
     <b-field label="Email"
@@ -19,13 +22,18 @@
              message="This username is available">
       <b-input value="johnsilver" maxlength="30"></b-input>
     </b-field>
-  </section>
+
 </div>
 </template>
 
 <script>
+// import Supplier from "./Supplier";
 export default {
-  name: "EditSupplier"
+  name: "EditSupplier",
+  components: {
+ // Supplier,
+
+  },
 }
 </script>
 
