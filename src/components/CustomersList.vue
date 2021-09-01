@@ -1,9 +1,8 @@
 <template>
-  <div>
-    <h1>Customers list</h1>
+  <div class="list">
+    <h2>Nos clients</h2>
 
     <div>
-      <p>Pour ajouter un client, click sur le bouton ajouter</p>
       <router-link
           :to="{
               name:'AddCustomer',
@@ -12,13 +11,13 @@
                 customer:customers,
               }
             }">
-        <b-button type="is-light">Ajouter</b-button>
+        Ajouter
       </router-link>
     </div>
 
-    <div>
-      <b-button type="primary-light" @click="previousPage" v-show="currentPage-1>0">⬅</b-button>
-      <b-button type="primary-light" @click="nextPage" v-show="currentPage+1<=lastPage">➡</b-button>
+    <div class="prev-next">
+      <b-button class="previous" type="primary-light" @click="previousPage" v-show="currentPage-1>0">⬅</b-button>
+      <b-button class="next" type="primary-light" @click="nextPage" v-show="currentPage+1<=lastPage">➡</b-button>
     </div>
 
     <p v-if="loading">Loading...</p>
@@ -27,13 +26,13 @@
       <b-table-column field="id" label="ID" numeric centered v-slot="props">
         {{ props.row.id }}
       </b-table-column>
-      <b-table-column field="firstname" label="First name" centered v-slot="props">
+      <b-table-column field="firstname" label="Prénom" centered v-slot="props">
         {{ props.row.firstName }}
       </b-table-column>
-      <b-table-column field="lastname" label="Last name" centered v-slot="props">
+      <b-table-column field="lastname" label="Nom" centered v-slot="props">
         {{ props.row.lastName }}
       </b-table-column>
-      <b-table-column field="action" label="Actions" centered v-slot="props">
+      <b-table-column field="action" label="" centered v-slot="props">
         <router-link
             :to="{
               name:'Customer',
@@ -52,7 +51,7 @@
                 customer:props.row,
                }
             }">
-            <b-button type="is-warning is-light">Modifier</b-button>
+            <b-button type="is-warning is-light">Editer</b-button>
         </router-link>
 
         <b-button type="is-danger is-light" @click="deleteID(props.row.id)" >Supprimer</b-button>
@@ -60,9 +59,9 @@
       </b-table-column>
     </b-table>
     <div>
-      <b-button type="primary-light" @click="previousPage" v-show="currentPage-1>0">Previous</b-button>
-      <b-button type="primary-light" @click="nextPage" v-show="currentPage+1<=lastPage">Next</b-button>
-      <b-button type="primary-light" @click="finalPage" v-show="lastPage">Last</b-button>
+      <b-button type="primary-light" @click="previousPage" v-show="currentPage-1>0">Précédent</b-button>
+      <b-button type="primary-light" @click="nextPage" v-show="currentPage+1<=lastPage">Suivant</b-button>
+      <b-button type="primary-light" @click="finalPage" v-show="lastPage">Dernière page</b-button>
     </div>
 
   </div>

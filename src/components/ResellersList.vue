@@ -52,7 +52,6 @@
     <b-button @click="previousPage" v-show="currentPage-1>0" class="previous">⬅</b-button>
     <b-button @click="nextPage" v-show="currentPage+1<=lastPage" class="next">➡</b-button>
   </div>
-</div>
 </template>
 
 <script>
