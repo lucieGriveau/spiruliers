@@ -1,81 +1,81 @@
 <template>
-<div>
+  <div class="list">
 
-  <h1>Nos Fournisseurs</h1>
+    <h2>Nos Fournisseurs</h2>
 
- <b-table
+    <div>
+      <router-link class="carte" :to="{ name: 'map', params:{ datas: suppliers} }">Voir carte</router-link>
+    </div>
+    <b-table
 
 
-:data="suppliers">
-<!--:checkedAt="date">-->
+        :data="suppliers">
+      <!--:checkedAt="date">-->
 
 
-    <b-table-column field="id" label="ID" numeric v-slot="props">
-      {{ props.row.id }}
-    </b-table-column>
-    <b-table-column field="name" label="Supplier" numeric v-slot="props" >
-      {{ props.row.name }}
-    </b-table-column>
-    <b-table-column field="checkedAt" label="Date d'Insertion" numeric v-slot="props" :value="formatDate()" >
-<!--      {{ date}}-->
-      {{ props.row.checkedAt}}
-    </b-table-column>
-    <b-table-column field="status" label="Stock" numeric v-slot="props" >
-      {{ props.row.status === true? "Ok" : "Non" }}
-    </b-table-column>
-    <b-table-column field="action" label="" v-slot="props">
-      <router-link
-          :to="{
+      <b-table-column field="id" label="ID" centered numeric v-slot="props">
+        {{ props.row.id }}
+      </b-table-column>
+      <b-table-column field="name" label="Nom/pseudo" centered numeric v-slot="props">
+        {{ props.row.name }}
+      </b-table-column>
+      <b-table-column field="checkedAt" label="Date d'insertion" centered numeric v-slot="props" :value="formatDate()">
+        <!--      {{ date}}-->
+        {{ props.row.checkedAt }}
+      </b-table-column>
+      <b-table-column field="status" label="Stock" numeric centered v-slot="props">
+        {{ props.row.status === true ? "Ok" : "Non" }}
+      </b-table-column>
+      <b-table-column field="action" label="" centered v-slot="props">
+        <router-link
+            :to="{
           name:'Supplier',
           params:{
             id:props.row.id,
             supplier:props.row,
             }
-          }"><b-button type="is-primary">Voir</b-button>
+          }">
+          <b-button type="is-primary">Voir</b-button>
 
-      </router-link>
-    </b-table-column>
+        </router-link>
+      </b-table-column>
 
-      <b-table-column field="action" label="" v-slot="props" >
-      <router-link
-          :to="{
+      <b-table-column field="action" label="" v-slot="props">
+        <router-link
+            :to="{
           name:'EditSupplier',
           params:{
             // id:props.row.id,
             supplier:props.row,
             }
-          }"><b-button type="is-primary">Edit</b-button>
-      </router-link>
-    </b-table-column>
+          }">
+          <b-button type="is-primary">Editer</b-button>
+        </router-link>
+      </b-table-column>
 
-    <b-table-column field="action" label="" >
+      <b-table-column field="action" label="">
 
-         <b-button type="is-primary">Supprimer</b-button>
+        <b-button type="is-primary">Supprimer</b-button>
 
-    </b-table-column>
+      </b-table-column>
 
 
-  </b-table>
-  <b-button type="primary-light" @click="pages(1)">Previous</b-button>
-  <b-button type="primary-light" @click="pages(2)">Next</b-button>
+    </b-table>
+    <b-button type="primary-light" @click="pages(1)">Previous</b-button>
+    <b-button type="primary-light" @click="pages(2)">Next</b-button>
 
-<br>
-  <br>
-
-  <router-link :to="{ name: 'map', params:{ datas: suppliers} }">Voir carte</router-link>
-
+    <br>
+    <br>
 
 
 
 
-
-</div>
+  </div>
 </template>
 
 <script>
-import  moment  from 'moment';
+import moment from 'moment';
 import axios from "axios";
-
 
 
 export default {
@@ -88,38 +88,38 @@ export default {
       error: null,
 
       suppliers: [],
-}
-      // columns: [
-      //   {
-      //     field: 'id',
-      //     label: 'ID',
-      //     width: '100',
-      //     numeric: true,
-      //     searchable: true,
-      //     centered: true
-      //   },
-      //
-      //   {
-      //     field: 'name',
-      //     label: 'Supplier',
-      //     searchable: true,
-      //     centered: true,
-      //     selectable: true,
-      //   },
-      //   {
-      //     field: 'checkedAt',
-      //     label: "Date d'Insertion",
-      //     // searchable: true,
-      //     centered: true,
-      //
-      //   },
-      //
-      //   {
-      //     field: 'status',
-      //     label: 'Status',
-      //     centered: true
-      //   },
-      // ],
+    }
+    // columns: [
+    //   {
+    //     field: 'id',
+    //     label: 'ID',
+    //     width: '100',
+    //     numeric: true,
+    //     searchable: true,
+    //     centered: true
+    //   },
+    //
+    //   {
+    //     field: 'name',
+    //     label: 'Supplier',
+    //     searchable: true,
+    //     centered: true,
+    //     selectable: true,
+    //   },
+    //   {
+    //     field: 'checkedAt',
+    //     label: "Date d'Insertion",
+    //     // searchable: true,
+    //     centered: true,
+    //
+    //   },
+    //
+    //   {
+    //     field: 'status',
+    //     label: 'Status',
+    //     centered: true
+    //   },
+    // ],
     // }
 
   },
@@ -132,9 +132,9 @@ export default {
 
   mounted() {
 
-  this.pages()
- // //   this.Page2()
-     },
+    this.pages()
+    // //   this.Page2()
+  },
 
   methods: {
     pages(page) {
@@ -157,9 +157,6 @@ export default {
 
 
 </script>
-
-
-
 
 
 <style scoped>
