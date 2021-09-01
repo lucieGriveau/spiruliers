@@ -5,18 +5,15 @@
 
     <div>
       <router-link class="carte" :to="{ name: 'map', params:{ datas: suppliers} }">Voir carte</router-link>
-    </div>
-
-  <div>
-      <router-link
+        <router-link class="carte"
         :to="{
               name:'AddSupplier',
               params:{
                 id:suppliers.id,
                 supplier:suppliers,
               }
-            }">
-      <b-button type="is-light">Ajouter un Fournisseur</b-button>
+            }">Ajouter un Fournisseur
+<!--      <b-button type="is-light"></b-button>-->
     </router-link>
   </div>
 
@@ -65,11 +62,11 @@
    <b-button type="is-danger is-light" @click="deleteID(props.row.id)">Supprimer</b-button>
     </b-table-column>
   </b-table>
-
+    <br>
   <b-button type="primary-light" @click="pages(1)">Previous</b-button>
   <b-button type="primary-light" @click="pages(2)">Next</b-button>
 
-    <br>
+
     <br>
 
 
