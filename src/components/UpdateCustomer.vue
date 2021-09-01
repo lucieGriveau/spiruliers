@@ -102,8 +102,4 @@ export default {
 
 <style scoped>
 
-#edit_form {
-  border: #2d654e;
-}
-
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div>
+    <h2>Fiche client</h2>
     <div class="card">
       <div class="card-content">
-
         <div class="media">
           <!--          <div class="media-left">-->
           <!--            <figure class="customer_picture">-->
@@ -27,8 +27,8 @@
       <div class="card-content">
         <div class="media">
           <div class="media-content">
-            <h1 class="fist_name">Reseller</h1>
-            <p>Name: {{ customerData.reseller.name }}</p>
+            <h1 class="fist_name">Revendeur</h1>
+            <p>Nom: {{ customerData.reseller.name }}</p>
             <a>Longitude: {{ customerData.reseller.longitude }}</a><br>
             <a>Latitude: {{ customerData.reseller.latitude }}</a>
           </div>
@@ -40,15 +40,15 @@
       <div class="card-content">
         <div class="media">
           <div class="media-content">
-            <h1 class="fist_name">Orders</h1>
+            <h1 class="fist_name">Commandes</h1>
             <b-table :data="customerData.orders">
               <b-table-column field="date" label="Date" centered numeric sortable v-slot="props">
                 {{ props.row.date }}
               </b-table-column>
-              <b-table-column field="number" label="Number" centered numeric v-slot="props">
+              <b-table-column field="number" label="Numéro de commande" centered numeric v-slot="props">
                 {{ props.row.number }}
               </b-table-column>
-              <b-table-column field="price" label="Price" centered numeric v-slot="props">
+              <b-table-column field="price" label="Prix de la commande" centered numeric v-slot="props">
                 {{ props.row.price }}
               </b-table-column>
               <!--                <thead>-->

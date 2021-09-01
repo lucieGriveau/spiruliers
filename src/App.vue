@@ -5,6 +5,7 @@
       <router-link to="/suppliers">Fournisseurs</router-link>
       <router-link to="/resellers">Revendeurs</router-link>
       <router-link to="/customers">Clients</router-link>
+      <router-link to="/orders">Commandes</router-link>
       <router-link to="/contact">Contact</router-link>
     </div>
 <!--    <Home msg="Welcome to Spiruliers"/>-->
