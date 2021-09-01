@@ -167,6 +167,10 @@ export default {
   background-color: #2d654e;
 }
 
+/*.button.is-primary {*/
+/*  color: black;*/
+/*}*/
+
 .button.primary-light {
   background-color: #2d654e;
   color: #fff
