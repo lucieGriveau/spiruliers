@@ -3,26 +3,40 @@
 
   <h1>Nos Fournisseurs</h1>
 
+
+  <div>
+      <router-link
+        :to="{
+              name:'AddSupplier',
+              params:{
+                id:suppliers.id,
+                supplier:suppliers,
+              }
+            }">
+      <b-button type="is-light">Ajouter un Fournisseur</b-button>
+    </router-link>
+  </div>
+
+
+
  <b-table
-
-
 :data="suppliers">
 <!--:checkedAt="date">-->
 
-
-    <b-table-column field="id" label="ID" numeric v-slot="props">
+    <b-table-column field="id" label="ID" centered numeric v-slot="props">
       {{ props.row.id }}
     </b-table-column>
-    <b-table-column field="name" label="Supplier" numeric v-slot="props" >
+    <b-table-column field="name" label="Supplier" centered numeric v-slot="props" >
       {{ props.row.name }}
     </b-table-column>
-    <b-table-column field="checkedAt" label="Date d'Insertion" numeric v-slot="props" :value="formatDate()" >
+    <b-table-column field="checkedAt" label="Date d'Insertion" centered numeric v-slot="props" :value="formatDate()" >
 <!--      {{ date}}-->
       {{ props.row.checkedAt}}
     </b-table-column>
-    <b-table-column field="status" label="Stock" numeric v-slot="props" >
-      {{ props.row.status === true? "Ok" : "Non" }}
+    <b-table-column field="status" label="Stock" numeric centered v-slot="props" >
+      {{ props.row.status === true? "Oui" : "Non" }}
     </b-table-column>
+
     <b-table-column field="action" label="" v-slot="props">
       <router-link
           :to="{
@@ -31,12 +45,9 @@
             id:props.row.id,
             supplier:props.row,
             }
-          }"><b-button type="is-primary">Voir</b-button>
-
+          }"><b-button type="is-success is-light">Voir</b-button>
       </router-link>
-    </b-table-column>
 
-      <b-table-column field="action" label="" v-slot="props" >
       <router-link
           :to="{
           name:'EditSupplier',
@@ -44,18 +55,13 @@
             // id:props.row.id,
             supplier:props.row,
             }
-          }"><b-button type="is-primary">Edit</b-button>
+          }"><b-button type="is-warning is-light">Modifier</b-button>
       </router-link>
+
+   <b-button type="is-danger is-light" @click="deleteID(props.row.id)">Supprimer</b-button>
     </b-table-column>
-
-    <b-table-column field="action" label="" >
-
-         <b-button type="is-primary">Supprimer</b-button>
-
-    </b-table-column>
-
-
   </b-table>
+
   <b-button type="primary-light" @click="pages(1)">Previous</b-button>
   <b-button type="primary-light" @click="pages(2)">Next</b-button>
 
@@ -82,6 +88,8 @@ export default {
   name: "SuppliersList",
   moment,
   // format,
+  props: {
+  },
   data() {
     return {
       loading: false,
@@ -148,7 +156,15 @@ export default {
 
     formatDate(date) {
       return moment(date).format('dd.mm.YYYY');
-    }
+    },
+
+
+    deleteID(id){
+      axios
+          .delete('https://heroku-campus-suppliers.herokuapp.com/api/suppliers/' + id)
+      this.pages()
+    },
+
 
 
   }
@@ -163,16 +179,16 @@ export default {
 
 
 <style scoped>
-.button.is-primary {
-  background-color: #2d654e;
-}
-
 /*.button.is-primary {*/
-/*  color: black;*/
+/*  background-color: #2d654e;*/
 /*}*/
 
-.button.primary-light {
-  background-color: #2d654e;
-  color: #fff
-}
+/*!*.button.is-primary {*!*/
+/*!*  color: black;*!*/
+/*!*}*!*/
+
+/*.button.primary-light {*/
+/*  background-color: #2d654e;*/
+/*  color: #fff*/
+/*}*/
 </style>
