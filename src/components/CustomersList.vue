@@ -16,21 +16,14 @@
     </div>
 
     <div class="prev-next">
-      <b-button class="previous" type="primary-light" @click="previousPage" v-show="currentPage-1>0">⬅</b-button>
-      <b-button class="next" type="primary-light" @click="nextPage" v-show="currentPage+1<=lastPage">➡</b-button>
+      <b-button class="previous" type="is-success is-light" @click="previousPage" v-show="currentPage-1>0">⬅</b-button>
+      <b-button class="next" type="is-success is-light" @click="nextPage" v-show="currentPage+1<=lastPage">➡</b-button>
     </div>
 
     <p v-if="loading">Loading...</p>
 
     <b-table :data="customers">
-<!--             :paginated="isPaginated"-->
-<!--             :pagination-simple="isPaginationSimple"-->
-<!--             :pagination-position="paginationPosition"-->
-<!--             :default-sort-direction="defaultSortDirection"-->
-<!--             :pagination-rounded="isPaginationRounded"-->
-<!--             :sort-icon="sortIcon"-->
-<!--             :sort-icon-size="sortIconSize">-->
-      <b-table-column field="id" label="ID" centered numeric sortable v-slot="props">
+     <b-table-column field="id" label="ID" centered numeric sortable v-slot="props">
         {{ props.row.id }}
       </b-table-column>
       <b-table-column field="firstname" label="Prénom" centered sortable v-slot="props">
@@ -64,8 +57,13 @@
         <b-button type="is-danger is-light" @click="deleteID(props.row.id)" >Supprimer</b-button>
 
       </b-table-column>
+<<<<<<< HEAD
     </b-table>
     <br>
+=======
+    </b-table><br>
+
+>>>>>>> e1f70dfbb25ec29933d2c3d1f1dee56159f8d899
     <div>
       <b-button type="is-success is-light" @click="previousPage" v-show="currentPage-1>0">Précédent</b-button>
       <b-button type="is-success is-light" @click="nextPage" v-show="currentPage+1<=lastPage">Suivant</b-button>
@@ -94,13 +92,6 @@ export default {
       error: null,
       currentPage: 1,
       lastPage: 1,
-      sortIcon: 'arrow-up',
-      sortIconSize: 'is-small',
-      isPaginated: true,
-      isPaginationSimple: false,
-      isPaginationRounded: false,
-      paginationPosition: 'bottom',
-      defaultSortDirection: 'asc',
     }
   },
   methods: {
