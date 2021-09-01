@@ -70,8 +70,9 @@
       <b-button type="primary-light" @click="nextPage" v-show="currentPage+1<=lastPage">Suivant</b-button>
       <!--      <b-button type="primary-light" @click="finalPage" v-show="lastPage">Dernière page</b-button>-->
     </div>
-
+<br>
   </div>
+
 </template>
 
 <script>
