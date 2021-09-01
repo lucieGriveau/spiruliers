@@ -8,7 +8,7 @@
       <router-link to="/contact">Contact</router-link>
     </div>
 <!--    <Home msg="Welcome to Spiruliers"/>-->
-    <img alt="Vue logo" src="./assets/spiruline-mdr.jpg" width="50%">
+    <img class="logo" alt="Vue logo" src="https://www.havea.com/media/catalog/product/cache/44f3c051f19eb24a4baafa2b36eefbbb/c/9/c95bb53ce8fac81918e0435be6def773d88d7cc6_spiruline_min.jpg">
     <router-view></router-view> <!--Affichage du contenu des routes-->
   </div>
 </template>
@@ -26,10 +26,17 @@ export default {
 
 <style>
 
-.app img{
-  border-radius: 150px;
+body .logo{
+  border-radius: 500px;
   border: 2px solid #2d654e;
-  margin: 50px 0;
+  margin: 0 auto 30px auto;
+  width: 25%;
+  box-shadow: 5px 5px 20px black;
+  transition: 1s;
+}
+
+body .logo:hover{
+  transform: rotate(360deg);
 }
 
 #app {

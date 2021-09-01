@@ -20,44 +20,41 @@
         :data="suppliers">
       <!--:checkedAt="date">-->
 
+    <b-table-column field="id" label="ID" centered numeric v-slot="props">
+      {{ props.row.id }}
+    </b-table-column>
+    <b-table-column field="name" label="Supplier" centered numeric v-slot="props" >
+      {{ props.row.name }}
+    </b-table-column>
+    <b-table-column field="checkedAt" label="Date d'Insertion" centered numeric v-slot="props" :value="formatDate()" >
+<!--      {{ date}}-->
+      {{ props.row.checkedAt}}
+    </b-table-column>
+    <b-table-column field="status" label="Stock" numeric centered v-slot="props" >
+      {{ props.row.status === true? "Oui" : "Non" }}
+    </b-table-column>
 
-      <b-table-column field="id" label="ID" centered numeric v-slot="props">
-        {{ props.row.id }}
-      </b-table-column>
-      <b-table-column field="name" label="Nom/pseudo" centered numeric v-slot="props">
-        {{ props.row.name }}
-      </b-table-column>
-      <b-table-column field="checkedAt" label="Date d'insertion" centered numeric v-slot="props" :value="formatDate()">
-        <!--      {{ date}}-->
-        {{ props.row.checkedAt }}
-      </b-table-column>
-      <b-table-column field="status" label="Stock" numeric centered v-slot="props">
-        {{ props.row.status === true ? "Ok" : "Non" }}
-      </b-table-column>
-      <b-table-column field="action" label="" centered v-slot="props">
-        <router-link
-            :to="{
+    <b-table-column field="action" label="" v-slot="props">
+      <router-link
+          :to="{
           name:'Supplier',
           params:{
             id:props.row.id,
             supplier:props.row,
             }
           }">
-          <b-button type="is-primary">Voir</b-button>
+          <b-button type="is-success is-light">Voir</b-button>
+      </router-link>
 
-        </router-link>
-      </b-table-column>
-
-      <b-table-column field="action" label="" v-slot="props">
-        <router-link
-            :to="{
+      <router-link
+          :to="{
           name:'EditSupplier',
           params:{
             // id:props.row.id,
             supplier:props.row,
             }
           }">
-          <b-button type="is-primary">Editer</b-button>
+          <b-button type="is-warning is-light ">Editer</b-button>
         </router-link>
       </b-table-column>
 
@@ -90,6 +87,8 @@ export default {
   name: "SuppliersList",
   moment,
   // format,
+  props: {
+  },
   data() {
     return {
       loading: false,
