@@ -1,44 +1,35 @@
 <template>
-  <section id="edit_form">
-    <h1>Update reseller</h1>
-    <b-field label="First name">
-      <b-input :value="dataUpdate.firstName"
+  <section class="edit_form">
+    <div class="titre">
+      <h2>Mettre à jour un revendeur</h2>
+    </div>
+    <b-field label="Nom">
+      <b-input v-model="dataUpdate.name"
                type="text"
                maxlength="30">
       </b-input>
     </b-field>
 
-    <b-field label="Last name">
-      <b-input :value="dataUpdate.lastName"
-               type="text"
+    <b-field label="Description">
+      <b-input v-model="dataUpdate.description"
+      type="text"
+      maxlength="200"></b-input>
+    </b-field>
+
+    <b-field label="Latitude">
+      <b-input v-model="dataUpdate.latitude"
+               type="number"
                maxlength="30">
       </b-input>
     </b-field>
 
-    <b-field label="Email">
-      <b-input :value="dataUpdate.email"
-               type="email"
+    <b-field label="Longitude">
+      <b-input v-model="dataUpdate.longitude"
+               type="number"
                maxlength="30">
       </b-input>
     </b-field>
 
-    <b-field label="Adress">
-      <b-input :value="dataUpdate.address"
-               type="text"
-               maxlength="30"></b-input>
-    </b-field>
-
-    <b-field label="Postal code">
-      <b-input :value="dataUpdate.codePostal"
-               type="text"
-               maxlength="5"></b-input>
-    </b-field>
-
-    <b-field label="City">
-      <b-input :value="dataUpdate.city"
-               type="text"
-               maxlength="30"></b-input>
-    </b-field>
 
     <b-field>
       <router-link to="/resellers">
@@ -58,42 +49,24 @@ export default {
   },
   data() {
     return {
-      dataUpdate: {}
+      dataUpdate: {
+        name: this.reseller.name,
+        description: this.reseller.description,
+        latitude: this.reseller.latitude,
+        longitude: this.reseller.longitude,
+        reseller_id: this.reseller.supplier_id
+      }
     }
   },
   methods: {
-    getData() {
-      this.loading = true
+    updateID() {
+      // console.log(this.dataUpdate);
       axios
-          .get('https://heroku-campus-suppliers.herokuapp.com/api/resellers/' + this.$route.params.id)
+          .put('https://heroku-campus-suppliers.herokuapp.com/api/resellers/' + this.reseller.id, this.dataUpdate)
           .then(response => {
-            this.dataUpdate = response.data;
-            // console.log(response.data);
+            console.log(response.data)
           })
-          .catch(error => {
-            // console.log(error)
-            this.error = error
-          })
-          .finally(() => {
-            this.loading = false;
-          })
-    }
-  },
-  mounted() {
-    if (this.reseller === undefined) {
-      //console.log(this.$route.params.id);
-      this.getData()
-    } else {
-      this.dataUpdate = this.reseller
     }
   }
 }
 </script>
-
-<style scoped>
-
-#edit_form {
-  border: #2d654e;
-}
-
-</style>

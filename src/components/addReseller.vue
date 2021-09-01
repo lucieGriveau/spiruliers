@@ -4,37 +4,49 @@
       <h2>Ajout d'un revendeur</h2>
     </div>
     <b-field label="Nom">
-      <b-input :value="dataAdded.name"
+      <b-input v-model="dataAdded.name"
                type="text"
                maxlength="30">
       </b-input>
     </b-field>
 
     <b-field label="Description">
-      <b-input :value="dataAdded.description"
+      <b-input v-model="dataAdded.description"
       type="text"
       maxlength="200"></b-input>
     </b-field>
 
     <b-field label="Latitude">
-      <b-input :value="dataAdded.latitude"
+      <b-input v-model="dataAdded.latitude"
                type="number"
                maxlength="30">
       </b-input>
     </b-field>
 
     <b-field label="Longitude">
-      <b-input :value="dataAdded.longitude"
+      <b-input v-model="dataAdded.longitude"
                type="number"
                maxlength="30">
       </b-input>
     </b-field>
 
-    <b-field hidden label="Crée le">
+    <!-- <b-field hidden label="Crée le">
       <b-input :value="currentDate()"
                type="text">
       </b-input>
     </b-field>
+
+    <b-field hidden label="Mis à jour le">
+      <b-input :value="currentDate()"
+               type="text">
+      </b-input>
+    </b-field>
+
+    <b-field hidden label="Supplier ID">
+      <b-input v-model="dataAdded.supplier_id"
+               type="text">
+      </b-input>
+    </b-field> -->
 
     <b-field>
       <router-link to="/resellers">
@@ -56,8 +68,6 @@ export default {
         description: "",
         latitude: "",
         longitude: "",
-        created_at: "",
-        updated_at: "",
         supplier_id: 0
       }
     }
