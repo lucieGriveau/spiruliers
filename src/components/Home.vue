@@ -9,7 +9,7 @@
     <br>
     <p>Nos producteurs locaux vous fournissent la spiruline de qualité venant de nos meilleurs champs</p>
     <br>
-    <p>⚠️Ne pas en parler à tout le monde (surtout aux schmits)⚠️</p>
+    <p>⚠️Ne pas ramasser la savonette (et il est content en plus)⚠️</p>
 
 <img src="https://www.spirulinefrance.fr/wp-content/uploads/2020/09/alograpolis-lingots-spiruline.jpg" alt="tablette de spiruline" width="35%">
 <img src="https://storage.sbg.cloud.ovh.net/v1/AUTH_dd430e2a89404e97bf6a772afa5dd938/2als-production-public/producer_photo/17459e64778.jpg" alt="prod" width="25%">
