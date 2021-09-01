@@ -1,6 +1,6 @@
 <template>
 <div class="list">
-  <h2>Liste des revendeurs</h2>
+  <h2>Nos revendeurs</h2>
   <div class="bouton-carte">
     <router-link class="carte" :to="{ name: 'map', params:{ datas: resellers} }">Voir carte</router-link>
     <router-link class="carte" :to="{ name:'addReseller', params:{ id:resellers.id, reseller:resellers }}">Ajouter un revendeur</router-link>
@@ -11,22 +11,22 @@
     <b-button @click="nextPage" v-show="currentPage+1<=lastPage" class="next">➡</b-button>
   </div>
   <b-table :data="resellers">
-    <b-table-column field="id" label="ID" sortable numeric v-slot="props">
+    <b-table-column field="id" label="ID" sortable centered numeric v-slot="props">
       {{ props.row.id }}
     </b-table-column>
-    <b-table-column field="name" label="Revendeur" numeric v-slot="props">
+    <b-table-column field="name" label="Revendeur" centered numeric v-slot="props">
       {{ props.row.name }}
     </b-table-column>
-    <b-table-column field="description" label="Description" numeric v-slot="props">
+    <b-table-column field="description" label="Description" centered numeric v-slot="props">
       {{ props.row.description }}
     </b-table-column>
-    <b-table-column field="created_at" label="Créé le" numeric v-slot="props">
+    <b-table-column field="created_at" label="Créé le" centered numeric v-slot="props">
       {{ props.row.created_at }}
     </b-table-column>
-    <b-table-column field="updated_at" label="Dernière mise à jour" numeric v-slot="props">
+    <b-table-column field="updated_at" label="Dernière mise à jour" centered numeric v-slot="props">
       {{ props.row.updated_at }}
     </b-table-column>
-    <b-table-column field="action" label="Actions" v-slot="props">
+    <b-table-column class="actions" field="action" v-slot="props">
       <router-link :to="{
           name:'Reseller',
           params:{
@@ -34,7 +34,7 @@
             reseller:props.row,
             }
           }">
-        <b-button class="see">Voir</b-button>
+        <b-button class="see" type="is-success is-light">Voir</b-button>
       </router-link>
       <router-link :to="{
           name:'ResellerUpdate',
@@ -43,9 +43,9 @@
             reseller:props.row,
             }
           }">
-        <b-button class="edit">Editer</b-button>
+        <b-button class="edit" type="is-warning is-light">Editer</b-button>
       </router-link>
-      <b-button class="del" @click="deleteID(props.row.id)">Supprimer</b-button>
+      <b-button class="del" @click="deleteID(props.row.id)" type="is-danger is-light">Supprimer</b-button>
     </b-table-column>
   </b-table>
   <div class="prev-next">

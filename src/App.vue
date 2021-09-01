@@ -39,6 +39,15 @@ body .logo:hover{
   transform: rotate(360deg);
 }
 
+.home .tablette{
+  box-shadow: inset 5px 5px 10px #000000;
+  width: 35%;
+}
+
+.home .shampoo{
+  width: 60%;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -70,15 +79,23 @@ body .logo:hover{
   margin-bottom: 50px;
 }
 
-body{
+body .table{
   background-color: #c7ded5;
+}
+
+body .table th{
+  background-color: #2d654e;
+}
+
+body .table th span{
+  color: #ffffff;
 }
 
 body h1 {
   font-size: 35px;
   color: #2d654e;
   width: 50%;
-  margin: 50px auto;
+  margin: 25px auto 0 auto;
 }
 
 body h1:after {
@@ -99,6 +116,10 @@ body h1.fromRight:after {
 
 body h1.fromLeft:after {
   transform-origin: 0% 50%;
+}
+
+body .titre{
+  margin-bottom: 50px;
 }
 
 body h2{
@@ -125,6 +146,10 @@ body h2{
 
 .table-wrapper{
   margin-top: 50px;
+}
+
+.bouton-carte{
+  margin-bottom: 25px;
 }
 
 .carte {
@@ -154,36 +179,6 @@ body h2{
   transition: 1s;
 }
 
-.list .see{
-  border: 1px solid #2d654e;
-}
-
-.list .see:hover{
-  border: 1px solid #2d654e;
-  background-color: #2d654e;
-  color: #ffffff;
-}
-
-.list .edit{
-  border: 1px solid #ff9800;
-}
-
-.list .edit:hover{
-  border: 1px solid #ff9800;
-  background-color: #ff9800;
-  color: #ffffff;
-}
-
-.list .del{
-  border: 1px solid red;
-}
-
-.list .del:hover{
-  border: 1px solid red;
-  background-color: red;
-  color: #ffffff;
-}
-
 .prev-next{
   margin-top: 50px;
   display: flex;
@@ -205,6 +200,7 @@ body h2{
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 50px;
 }
 
 .one .texts .box{
