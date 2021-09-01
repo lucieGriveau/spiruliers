@@ -4,7 +4,7 @@
     <h2>Nos Fournisseurs</h2>
 
     <div>
-      <router-link class="carte" :to="{ name: 'map', params:{ datas: suppliers} }">Voir carte</router-link>
+      <router-link class="carte" :to="{ name: 'map', params:{ datas: suppliers} }">  Voir sur la carte </router-link>
         <router-link class="carte"
         :to="{
               name:'AddSupplier',
@@ -20,17 +20,17 @@
  <b-table
         :data="suppliers">
       <!--:checkedAt="date">-->
-    <b-table-column field="id" label="ID" centered numeric v-slot="props">
+    <b-table-column field="id" label="ID" centered numeric sortable v-slot="props">
       {{ props.row.id }}
     </b-table-column>
-    <b-table-column field="name" label="Supplier" centered numeric v-slot="props" >
+    <b-table-column field="name" label="Supplier" centered numeric sortable v-slot="props" >
       {{ props.row.name }}
     </b-table-column>
-    <b-table-column field="checkedAt" label="Date d'Insertion" centered numeric v-slot="props" :value="formatDate()" >
+    <b-table-column field="checkedAt"  label="Date d'Insertion" centered numeric sortable v-slot="props" :value="formatDate()" >
 <!--      {{ date}}-->
       {{ props.row.checkedAt}}
     </b-table-column>
-    <b-table-column field="status" label="Stock" numeric centered v-slot="props" >
+    <b-table-column field="status" type="boolean" label="Stock" numeric centered v-slot="props" >
       {{ props.row.status === true? "Oui" : "Non" }}
     </b-table-column>
 
@@ -56,16 +56,14 @@
           }">
           <b-button type="is-warning is-light ">Editer</b-button>
         </router-link>
-      </b-table-column>
 
-      <b-table-column field="action" label="">
-        <b-button type="is-primary">Supprimer</b-button>
+        <b-button type="is-danger is-light" @click="deleteID(props.row.id)">Supprimer</b-button>
     </b-table-column>
   </b-table>
     <br>
 
-    <b-button type="primary-light" @click="pages(1)">Previous</b-button>
-    <b-button type="primary-light" @click="pages(2)">Next</b-button>
+    <b-button type="is-success is-light" @click="pages(1)">Previous</b-button>
+    <b-button type="is-success is-light" @click="pages(2)">Next</b-button>
 
     <br>
 </div>
@@ -124,4 +122,8 @@ export default {
 
 
 <style scoped>
+
+
+
+
 </style>

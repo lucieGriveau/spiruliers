@@ -17,7 +17,7 @@
 
     <b-field label="Status">
       <b-input v-model="dataUpdate.status"
-               type="boolean"
+               type="text"
                maxlength="30">
       </b-input>
     </b-field>
