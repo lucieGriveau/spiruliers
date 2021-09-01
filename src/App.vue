@@ -10,7 +10,9 @@
     </div>
 <!--    <Home msg="Welcome to Spiruliers"/>-->
     <img class="logo" alt="Vue logo" src="https://www.havea.com/media/catalog/product/cache/44f3c051f19eb24a4baafa2b36eefbbb/c/9/c95bb53ce8fac81918e0435be6def773d88d7cc6_spiruline_min.jpg">
-    <router-view></router-view> <!--Affichage du contenu des routes-->
+    <router-view>
+      <!--Affichage du contenu des routes-->
+    </router-view>
   </div>
 </template>
 
