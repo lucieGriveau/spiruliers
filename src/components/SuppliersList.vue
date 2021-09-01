@@ -12,17 +12,14 @@
                 id:suppliers.id,
                 supplier:suppliers,
               }
-            }">Ajouter un Fournisseur
-<!--      <b-button type="is-light"></b-button>-->
+            }"> Ajouter un Fournisseur
     </router-link>
   </div>
-
 
 
  <b-table
         :data="suppliers">
       <!--:checkedAt="date">-->
-
     <b-table-column field="id" label="ID" centered numeric v-slot="props">
       {{ props.row.id }}
     </b-table-column>
@@ -56,22 +53,21 @@
             // id:props.row.id,
             supplier:props.row,
             }
-          }"><b-button type="is-warning is-light">Modifier</b-button>
-      </router-link>
+          }">
+          <b-button type="is-warning is-light ">Editer</b-button>
+        </router-link>
+      </b-table-column>
 
-   <b-button type="is-danger is-light" @click="deleteID(props.row.id)">Supprimer</b-button>
+      <b-table-column field="action" label="">
+        <b-button type="is-primary">Supprimer</b-button>
     </b-table-column>
   </b-table>
     <br>
-  <b-button type="primary-light" @click="pages(1)">Previous</b-button>
-  <b-button type="primary-light" @click="pages(2)">Next</b-button>
 
+    <b-button type="primary-light" @click="pages(1)">Previous</b-button>
+    <b-button type="primary-light" @click="pages(2)">Next</b-button>
 
     <br>
-
-
-
-
 </div>
 </template>
 
@@ -93,7 +89,6 @@ export default {
 
       suppliers: [],
     }
-
   },
 
   mounted() {
@@ -115,20 +110,13 @@ export default {
       return moment(date).format('dd.mm.YYYY');
     },
 
-
     deleteID(id){
       axios
           .delete('https://heroku-campus-suppliers.herokuapp.com/api/suppliers/' + id)
       this.pages()
     },
-
-
-
   }
-
 }
-
-
 </script>
 
 
