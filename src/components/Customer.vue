@@ -36,25 +36,36 @@
       </div>
     </div>
 
-<!--    <div class="card">-->
-<!--      <div class="card-content">-->
-<!--        <div class="media">-->
-<!--          <div class="media-content">-->
-<!--            <h1 class="fist_name">Orders</h1>-->
-<!--              <table v-for="order in customerData.orders" :key="order.id">-->
-<!--                <thead>-->
-<!--                  <tr>Number:</tr>-->
-<!--                  <tr>Date:</tr>-->
-<!--                </thead>-->
-<!--                <tr>-->
-<!--                  <td>{{ order.number }}</td>-->
-<!--                  <td>{{ order.date }}</td>-->
-<!--                </tr>-->
-<!--              </table>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
+    <div class="card">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <h1 class="fist_name">Orders</h1>
+            <b-table :data="customerData.orders">
+              <b-table-column field="date" label="Date" centered numeric sortable v-slot="props">
+                {{ props.row.date }}
+              </b-table-column>
+              <b-table-column field="number" label="Number" centered numeric v-slot="props">
+                {{ props.row.number }}
+              </b-table-column>
+              <b-table-column field="price" label="Price" centered numeric v-slot="props">
+                {{ props.row.price }}
+              </b-table-column>
+              <!--                <thead>-->
+              <!--                  <tr>Number:</tr>-->
+              <!--                  <tr>Date:</tr>-->
+              <!--                  <tr>Price:</tr>-->
+              <!--                </thead>-->
+              <!--                <tr>-->
+              <!--                  <td>{{ order.number }}</td>-->
+              <!--                  <td>{{ order.date }}</td>-->
+              <!--                  <td>{{ order.price }}</td>-->
+              <!--                </tr>-->
+            </b-table>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

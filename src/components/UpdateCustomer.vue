@@ -1,14 +1,14 @@
 <template>
   <section id="edit_form">
-    <h1>Update customer</h1>
-    <b-field label="First name">
+    <h1>Modifier les données d'un client</h1>
+    <b-field label="Prénom">
       <b-input v-model="dataUpdate.firstName"
                type="text"
                maxlength="30">
       </b-input>
     </b-field>
 
-    <b-field label="Last name">
+    <b-field label="Nom">
       <b-input v-model="dataUpdate.lastName"
                type="text"
                maxlength="30">
@@ -22,14 +22,14 @@
       </b-input>
     </b-field>
 
-    <b-field label="Postal code">
+    <b-field label="Code postal">
       <b-input v-model="dataUpdate.codePostal"
                type="text"
                maxlength="5">
       </b-input>
     </b-field>
 
-    <b-field label="City">
+    <b-field label="Ville">
       <b-input v-model="dataUpdate.city"
                type="text"
                maxlength="30">
@@ -50,7 +50,7 @@
       </b-input>
     </b-field>
 
-    <b-field label="Reseller">
+    <b-field label="Revendeur">
       <b-input v-model="dataUpdate.reseller_id"
                type="text"
                maxlength="30">

@@ -1,74 +1,84 @@
 <template>
-<div>
-  <br>
-  <h1> Editer la fiche du Fournisseur:</h1>
-  <br>
-  <b-field label="ID"  >
-    <b-input :value="nom"  ></b-input>
-      </b-field>
-
-  <b-field label="Nome de l'Intreprise"  >
-    <b-input :value="lati"></b-input>
-  </b-field>
-
-    <b-field label="Status"  >
-      <b-input :value="sta"></b-input>
+  <section id="edit_form_supplier">
+    <h1>Modifier Fournisseur</h1>
+    <b-field label="Entreprise">
+      <b-input v-model="dataUpdate.name"
+               type="text"
+               maxlength="30">
+      </b-input>
     </b-field>
 
-  <b-field label="Longitude"  >
-    <b-input :value="longi"></b-input>
-  </b-field>
+    <b-field label="Date">
+      <b-input v-model="dataUpdate.checkedAt"
+               type="text"
+               maxlength="30">
+      </b-input>
+    </b-field>
 
+    <b-field label="Status">
+      <b-input v-model="dataUpdate.status"
+               type="boolean"
+               maxlength="30">
+      </b-input>
+    </b-field>
 
-  <b-field label="Latitude"  >
-    <b-input :value="lati"></b-input>
-  </b-field>
+    <b-field label="Longitude">
+      <b-input v-model="dataUpdate.longitude"
+               type="text"
+               maxlength="10">
+      </b-input>
+    </b-field>
 
-  <b-button label="Enregistrer" type="is-primary" />
+    <b-field label="Latitude">
+      <b-input v-model="dataUpdate.latitude"
+               type="text"
+               maxlength="30">
+      </b-input>
+    </b-field>
 
-<!--     <b-field label="Username"-->
-<!--             type="is-success"-->
-<!--             message="This username is available">-->
-<!--      <b-input value="johnsilver" maxlength="30"></b-input>-->
-<!--    </b-field>-->
-
-</div>
+    <b-field>
+      <router-link to="/suppliers">
+        <b-button type="is-success is-light" @click="updateID">Enregistrer</b-button>
+      </router-link>
+    </b-field>
+  </section>
 </template>
 
 <script>
-// import Supplier from "./Supplier";
 import axios from "axios";
 
 export default {
   name: "EditSupplier",
+  props: {
+    supplier: Object
+  },
   data() {
     return {
-      loading: false,
-      error: null,
+      dataUpdate: {
+        name: this.supplier.name,
+        checkedAt: this.supplier.checkedAt,
+       status: this.supplier.status,
+        longitude: this.supplier.longitude,
+        latitude: this.supplier.latitude,
+      }
     }
   },
-
-
-  mounted() {
-  this.refresh()
-  },
-
   methods: {
-    refresh() {
-      this.loading = true;
+    updateID() {
       axios
-          .get('https://heroku-campus-suppliers.herokuapp.com/api/suppliers/edit')  // the logic here is that we have to recharge the data of the page we are currently.
-          // So that's why we have to pass by a full route, get all the parameters and create a new object with the info, like a new page.
-          // The opposite of what we did to show the different pages of SuppliersList.
-          .then(response => (console.log(this.info = response.data.data)))
-          .catch(error => console.log(error))
-          .finally(() => this.loading = false)
-    },
-  }
+          .put('https://heroku-campus-suppliers.herokuapp.com/api/suppliers/' + this.supplier.id, this.dataUpdate)
+          .then(response => {
+            console.log(response.data)
+          })
+    }
+  },
 }
-
 </script>
 
 <style scoped>
+
+#edit_form {
+  border: #2d654e;
+}
 
 </style>

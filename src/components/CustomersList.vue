@@ -2,8 +2,8 @@
   <div class="list">
     <h2>Nos clients</h2>
 
-    <div>
-      <router-link
+    <div class="bouton-carte">
+      <router-link class="carte"
           :to="{
               name:'AddCustomer',
               params:{
@@ -11,7 +11,7 @@
                 customer:customers,
               }
             }">
-        Ajouter
+        Ajouter un client
       </router-link>
     </div>
 
@@ -23,13 +23,20 @@
     <p v-if="loading">Loading...</p>
 
     <b-table :data="customers">
-      <b-table-column field="id" label="ID" numeric centered v-slot="props">
+<!--             :paginated="isPaginated"-->
+<!--             :pagination-simple="isPaginationSimple"-->
+<!--             :pagination-position="paginationPosition"-->
+<!--             :default-sort-direction="defaultSortDirection"-->
+<!--             :pagination-rounded="isPaginationRounded"-->
+<!--             :sort-icon="sortIcon"-->
+<!--             :sort-icon-size="sortIconSize">-->
+      <b-table-column field="id" label="ID" centered numeric sortable v-slot="props">
         {{ props.row.id }}
       </b-table-column>
-      <b-table-column field="firstname" label="Prénom" centered v-slot="props">
+      <b-table-column field="firstname" label="Prénom" centered sortable v-slot="props">
         {{ props.row.firstName }}
       </b-table-column>
-      <b-table-column field="lastname" label="Nom" centered v-slot="props">
+      <b-table-column field="lastname" label="Nom" centered sortable v-slot="props">
         {{ props.row.lastName }}
       </b-table-column>
       <b-table-column field="action" label="" centered v-slot="props">
@@ -61,7 +68,7 @@
     <div>
       <b-button type="primary-light" @click="previousPage" v-show="currentPage-1>0">Précédent</b-button>
       <b-button type="primary-light" @click="nextPage" v-show="currentPage+1<=lastPage">Suivant</b-button>
-      <b-button type="primary-light" @click="finalPage" v-show="lastPage">Dernière page</b-button>
+<!--      <b-button type="primary-light" @click="finalPage" v-show="lastPage">Dernière page</b-button>-->
     </div>
 
   </div>
@@ -77,7 +84,7 @@ export default {
     //Customer
   },
   props:{
-
+    customer: Object
   },
   data() {
     return {
@@ -86,6 +93,13 @@ export default {
       error: null,
       currentPage: 1,
       lastPage: 1,
+      sortIcon: 'arrow-up',
+      sortIconSize: 'is-small',
+      isPaginated: true,
+      isPaginationSimple: false,
+      isPaginationRounded: false,
+      paginationPosition: 'bottom',
+      defaultSortDirection: 'asc',
     }
   },
   methods: {

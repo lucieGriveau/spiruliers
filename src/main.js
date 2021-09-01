@@ -15,6 +15,7 @@ import addReseller from './components/addReseller.vue'
 import ResellerUpdate from './components/ResellerUpdate.vue'
 import UpdateCustomer from './components/UpdateCustomer.vue'
 import EditSupplier from "./components/EditSupplier.vue";
+import AddSupplier from "./components/AddSupplier.vue";
 import Contact from './components/Contact.vue'
 
 // Map Leaflet
@@ -50,6 +51,7 @@ Vue.use(Buefy);
 
 import moment from 'moment';
 
+
 Vue.use(moment);
 
 
@@ -74,6 +76,7 @@ const routes = [
   // CRUD Supplier
   { path: '/supplier/:id', component: Supplier, name: 'Supplier', props: true }, //routes pour supplier qui affiche le composant Supplier
   { path: '/supplier/edit', component: EditSupplier, name: 'EditSupplier', props: true }, //route pour le composant d'edition des fiches "supplier".
+  { path: '/supplier/add', component: AddSupplier, name: 'AddSupplier', props: true }, // Create
 
 
 ]
