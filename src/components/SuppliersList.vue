@@ -3,9 +3,17 @@
 
     <h2>Nos Fournisseurs</h2>
 
-    <div>
+    <div class="bouton-carte">
       <router-link class="carte" :to="{ name: 'map', params:{ datas: suppliers} }">Voir carte</router-link>
     </div>
+
+    <div class="prev-next">
+      <b-button type="primary-light" @click="pages(1)" class="previous">⬅</b-button>
+      <b-button type="primary-light" @click="pages(2)" class="next">➡</b-button>
+    </div>
+
+    <p v-if="loading">Loading...</p>
+
     <b-table
 
 

@@ -5,11 +5,14 @@
     <router-link class="carte" :to="{ name: 'map', params:{ datas: resellers} }">Voir carte</router-link>
     <router-link class="carte" :to="{ name:'addReseller', params:{ id:resellers.id, reseller:resellers }}">Ajouter un revendeur</router-link>
   </div>
-  <p v-if="loading">Loading...</p>
+
   <div class="prev-next">
     <b-button @click="previousPage" v-show="currentPage-1>0" class="previous">⬅</b-button>
     <b-button @click="nextPage" v-show="currentPage+1<=lastPage" class="next">➡</b-button>
   </div>
+
+  <p v-if="loading">Loading...</p>
+
   <b-table :data="resellers">
     <b-table-column field="id" label="ID" sortable numeric v-slot="props">
       {{ props.row.id }}
@@ -26,7 +29,7 @@
     <b-table-column field="updated_at" label="Dernière mise à jour" numeric v-slot="props">
       {{ props.row.updated_at }}
     </b-table-column>
-    <b-table-column field="action" label="Actions" v-slot="props">
+    <b-table-column field="action" label="" v-slot="props">
       <router-link :to="{
           name:'Reseller',
           params:{
@@ -48,10 +51,13 @@
       <b-button class="del" @click="deleteID(props.row.id)">Supprimer</b-button>
     </b-table-column>
   </b-table>
+
   <div class="prev-next">
     <b-button @click="previousPage" v-show="currentPage-1>0" class="previous">⬅</b-button>
     <b-button @click="nextPage" v-show="currentPage+1<=lastPage" class="next">➡</b-button>
   </div>
+
+</div>
 </template>
 
 <script>
