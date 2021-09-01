@@ -3,23 +3,23 @@
 
     <h2>Nos Fournisseurs</h2>
 
-    <div class="bouton-carte">
+    <div>
       <router-link class="carte" :to="{ name: 'map', params:{ datas: suppliers} }">Voir carte</router-link>
-    </div>
+        <router-link class="carte"
+        :to="{
+              name:'AddSupplier',
+              params:{
+                id:suppliers.id,
+                supplier:suppliers,
+              }
+            }"> Ajouter un Fournisseur
+    </router-link>
+  </div>
 
-    <div class="prev-next">
-      <b-button type="primary-light" @click="pages(1)" class="previous">⬅</b-button>
-      <b-button type="primary-light" @click="pages(2)" class="next">➡</b-button>
-    </div>
 
-    <p v-if="loading">Loading...</p>
-
-    <b-table
-
-
+ <b-table
         :data="suppliers">
       <!--:checkedAt="date">-->
-
     <b-table-column field="id" label="ID" centered numeric v-slot="props">
       {{ props.row.id }}
     </b-table-column>
@@ -59,23 +59,16 @@
       </b-table-column>
 
       <b-table-column field="action" label="">
-
         <b-button type="is-primary">Supprimer</b-button>
+    </b-table-column>
+  </b-table>
+    <br>
 
-      </b-table-column>
-
-
-    </b-table>
     <b-button type="primary-light" @click="pages(1)">Previous</b-button>
     <b-button type="primary-light" @click="pages(2)">Next</b-button>
 
     <br>
-    <br>
-
-
-
-
-  </div>
+</div>
 </template>
 
 <script>
@@ -96,52 +89,12 @@ export default {
 
       suppliers: [],
     }
-    // columns: [
-    //   {
-    //     field: 'id',
-    //     label: 'ID',
-    //     width: '100',
-    //     numeric: true,
-    //     searchable: true,
-    //     centered: true
-    //   },
-    //
-    //   {
-    //     field: 'name',
-    //     label: 'Supplier',
-    //     searchable: true,
-    //     centered: true,
-    //     selectable: true,
-    //   },
-    //   {
-    //     field: 'checkedAt',
-    //     label: "Date d'Insertion",
-    //     // searchable: true,
-    //     centered: true,
-    //
-    //   },
-    //
-    //   {
-    //     field: 'status',
-    //     label: 'Status',
-    //     centered: true
-    //   },
-    // ],
-    // }
-
   },
-  // computed: { //para poder atualizar a data de atualização a cada refresh
-  //   date () {
-  //     return format(this.checkedAt, 'en_US');
-  //   },
-  // },
-
 
   mounted() {
 
     this.pages()
-    // //   this.Page2()
-  },
+    },
 
   methods: {
     pages(page) {
@@ -155,24 +108,20 @@ export default {
 
     formatDate(date) {
       return moment(date).format('dd.mm.YYYY');
-    }
+    },
 
-
+    deleteID(id){
+      axios
+          .delete('https://heroku-campus-suppliers.herokuapp.com/api/suppliers/' + id)
+      this.pages()
+    },
   }
-
 }
-
-
 </script>
 
 
-<style scoped>
-.button.is-primary {
-  background-color: #2d654e;
-}
 
-.button.primary-light {
-  background-color: #2d654e;
-  color: #fff
-}
+
+
+<style scoped>
 </style>
