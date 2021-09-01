@@ -1,8 +1,11 @@
 <template>
-<div>
+  <div class="list">
 
-  <h1>Nos Fournisseurs</h1>
+    <h2>Nos Fournisseurs</h2>
 
+    <div>
+      <router-link class="carte" :to="{ name: 'map', params:{ datas: suppliers} }">Voir carte</router-link>
+    </div>
 
   <div>
       <router-link
@@ -20,8 +23,8 @@
 
 
  <b-table
-:data="suppliers">
-<!--:checkedAt="date">-->
+        :data="suppliers">
+      <!--:checkedAt="date">-->
 
     <b-table-column field="id" label="ID" centered numeric v-slot="props">
       {{ props.row.id }}
@@ -45,7 +48,8 @@
             id:props.row.id,
             supplier:props.row,
             }
-          }"><b-button type="is-success is-light">Voir</b-button>
+          }">
+          <b-button type="is-success is-light">Voir</b-button>
       </router-link>
 
       <router-link
@@ -65,12 +69,8 @@
   <b-button type="primary-light" @click="pages(1)">Previous</b-button>
   <b-button type="primary-light" @click="pages(2)">Next</b-button>
 
-<br>
-  <br>
-
-  <router-link :to="{ name: 'map', params:{ datas: suppliers} }">Voir carte</router-link>
-
-
+    <br>
+    <br>
 
 
 
@@ -79,9 +79,8 @@
 </template>
 
 <script>
-import  moment  from 'moment';
+import moment from 'moment';
 import axios from "axios";
-
 
 
 export default {
@@ -96,53 +95,14 @@ export default {
       error: null,
 
       suppliers: [],
-}
-      // columns: [
-      //   {
-      //     field: 'id',
-      //     label: 'ID',
-      //     width: '100',
-      //     numeric: true,
-      //     searchable: true,
-      //     centered: true
-      //   },
-      //
-      //   {
-      //     field: 'name',
-      //     label: 'Supplier',
-      //     searchable: true,
-      //     centered: true,
-      //     selectable: true,
-      //   },
-      //   {
-      //     field: 'checkedAt',
-      //     label: "Date d'Insertion",
-      //     // searchable: true,
-      //     centered: true,
-      //
-      //   },
-      //
-      //   {
-      //     field: 'status',
-      //     label: 'Status',
-      //     centered: true
-      //   },
-      // ],
-    // }
+    }
 
   },
-  // computed: { //para poder atualizar a data de atualização a cada refresh
-  //   date () {
-  //     return format(this.checkedAt, 'en_US');
-  //   },
-  // },
-
 
   mounted() {
 
-  this.pages()
- // //   this.Page2()
-     },
+    this.pages()
+    },
 
   methods: {
     pages(page) {
@@ -179,16 +139,4 @@ export default {
 
 
 <style scoped>
-/*.button.is-primary {*/
-/*  background-color: #2d654e;*/
-/*}*/
-
-/*!*.button.is-primary {*!*/
-/*!*  color: black;*!*/
-/*!*}*!*/
-
-/*.button.primary-light {*/
-/*  background-color: #2d654e;*/
-/*  color: #fff*/
-/*}*/
 </style>

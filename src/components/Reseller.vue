@@ -4,7 +4,7 @@
     <p>{{ reseller.description }}</p>
     <p>Latitude : {{ reseller.latitude }}°</p>
     <p>Longitude : {{ reseller.longitude }}°</p>
-    <p>Supplier associé : {{ reseller.supplier_id }}</p>
+    <p>Fournisseurs associés : {{ reseller.supplier_id }}</p>
     <div class="texts">
       <div class="box">
         <h3>Crée le : </h3>

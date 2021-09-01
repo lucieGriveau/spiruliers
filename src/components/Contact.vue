@@ -32,7 +32,7 @@
       <b-input v-model="message" maxlength="400" type="textarea" value="Pas trop long non plus j'ai pas ton temps j'ai rien à faire" required></b-input>
     </b-field>
 
-    <button type="submit" name="button">Envoyer</button>
+    <b-button type="submit" name="button">Envoyer</b-button>
   </form>
 </div>
 </template>

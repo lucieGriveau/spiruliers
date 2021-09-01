@@ -11,6 +11,8 @@ import Reseller from './components/Reseller.vue'
 import Customer from './components/Customer.vue'
 import Map from './components/Map.vue'
 import AddCustomer from './components/AddCustomer.vue'
+import addReseller from './components/addReseller.vue'
+import ResellerUpdate from './components/ResellerUpdate.vue'
 import UpdateCustomer from './components/UpdateCustomer.vue'
 import EditSupplier from "./components/EditSupplier.vue";
 import AddSupplier from "./components/AddSupplier.vue";
@@ -68,6 +70,8 @@ const routes = [
 
     // CRUD Reseller
   { path: '/reseller/:id', component: Reseller, name: 'Reseller', props: true }, //routes pour reseller qui affiche le composant Reseller
+  { path: '/reseller/add', component: addReseller, name: 'addReseller', props: true }, //route pour le composant d'edition des fiches "reseller".
+  { path: '/reseller/update/:id', component: ResellerUpdate, name: 'ResellerUpdate', props: true }, //route pour le composant d'edition des fiches "reseller".
 
   // CRUD Supplier
   { path: '/supplier/:id', component: Supplier, name: 'Supplier', props: true }, //routes pour supplier qui affiche le composant Supplier
