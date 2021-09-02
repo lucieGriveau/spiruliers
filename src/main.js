@@ -98,7 +98,7 @@ const routes = [
   // CRUD Supplier
   { path: '/supplier/:id', component: Supplier, name: 'Supplier', props: true },
   { path: '/supplier/add', component: AddSupplier, name: 'AddSupplier', props: true },
-  { path: '/supplier/edit', component: EditSupplier, name: 'EditSupplier', props: true },
+  { path: '/supplier/update/:id', component: EditSupplier, name: 'EditSupplier', props: true },
 
 // CRUD Order
   { path: '/order/:id', component: Order, name: 'Order', props: true },

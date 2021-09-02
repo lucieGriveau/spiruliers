@@ -63,7 +63,6 @@
 
 
 
-
     <div>
       <b-button type="is-success is-light" @click="previousPage" v-show="currentPage-1>0">Précédent</b-button>
       <b-button type="is-success is-light" @click="nextPage" v-show="currentPage+1<=lastPage">Suivant</b-button>
