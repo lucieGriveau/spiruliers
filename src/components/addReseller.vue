@@ -1,32 +1,24 @@
 <template>
-  <section id="edit_form">
-    <div class="titre">
-      <h2>Ajout d'un revendeur</h2>
-    </div>
+<section id="edit_form">
+  <div class="titre">
+    <h2>Ajout d'un revendeur</h2>
+  </div>
     <b-field label="Nom">
-      <b-input v-model="dataAdded.name"
-               type="text"
-               maxlength="30">
+      <b-input v-model="dataAdded.name" type="text" maxlength="30">
       </b-input>
     </b-field>
 
     <b-field label="Description">
-      <b-input v-model="dataAdded.description"
-      type="text"
-      maxlength="200"></b-input>
+      <b-input v-model="dataAdded.description" type="text" maxlength="200"></b-input>
     </b-field>
 
     <b-field label="Latitude">
-      <b-input v-model="dataAdded.latitude"
-               type="number"
-               maxlength="30">
+      <b-input v-model="dataAdded.latitude" type="number" maxlength="30">
       </b-input>
     </b-field>
 
     <b-field label="Longitude">
-      <b-input v-model="dataAdded.longitude"
-               type="number"
-               maxlength="30">
+      <b-input v-model="dataAdded.longitude" type="number" maxlength="30">
       </b-input>
     </b-field>
 
@@ -53,7 +45,7 @@
         <b-button type="primary-light" @click="createID">Ajouter</b-button>
       </router-link>
     </b-field>
-  </section>
+</section>
 </template>
 
 <script>
@@ -76,10 +68,18 @@ export default {
     createID() {
       console.log(this.dataAdded)
       axios
-          .post('https://heroku-campus-suppliers.herokuapp.com/api/resellers', this.dataAdded)
-           .then(response => {
-             console.log(response)
-           })
+        .post('https://heroku-campus-suppliers.herokuapp.com/api/resellers', {     name: this.dataAdded.name,
+    description: this.dataAdded.description,
+    supplier_id: this.dataAdded.supplier_id,
+    latitude: this.dataAdded.latitude,
+    longitude: this.dataAdded.longitude
+       })
+        .then(response => {
+          console.log(response)
+        })
+        .catch(error =>{
+          console.log(error)
+        })
     },
     currentDate() {
       const current = new Date();
@@ -91,16 +91,13 @@ export default {
 </script>
 
 <style scoped>
+#edit_form {
+  border: #2d654e;
+  width: 50%;
+  margin: 0 auto;
+}
 
-  #edit_form {
-    border: #2d654e;
-    width: 50%;
-    margin: 0 auto;
-  }
-
-  #edit_form h2{
-    width: 100%;
-  }
-
-
+#edit_form h2 {
+  width: 100%;
+}
 </style>

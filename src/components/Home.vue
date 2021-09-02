@@ -16,6 +16,8 @@
 
   <img src="https://www.spirulinefrance.fr/wp-content/uploads/2020/09/alograpolis-lingots-spiruline.jpg" alt="tablette de spiruline" class="tablette">
   <img src="https://media4.giphy.com/media/1014INICXgJ4Os/giphy.gif?cid=ecf05e4774nk7o4s2zce7ptvn4vkig0k3w1bngadd170twnk&rid=giphy.gif&ct=g" alt="shampoo" class="shampoo">
+  <br>
+  <br>
 </div>
 
 <!--<ResellersList />
