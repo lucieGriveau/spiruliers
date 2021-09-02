@@ -11,6 +11,23 @@
 <!--    <Home msg="Welcome to Spiruliers"/>-->
     <img class="logo" alt="Vue logo" src="https://www.havea.com/media/catalog/product/cache/44f3c051f19eb24a4baafa2b36eefbbb/c/9/c95bb53ce8fac81918e0435be6def773d88d7cc6_spiruline_min.jpg">
     <router-view></router-view> <!--Affichage du contenu des routes-->
+
+
+<!--    <div id="app">-->
+<!--      <font-awesome-icon icon="user-secret" />-->
+<!--    </div>-->
+
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Spiruliers</strong> by <a href="https://jgthms.com"> © Bagalu Limited 🔥</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">NICE</a>. The website content
+          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">BG 5.0</a>.
+        </p>
+      </div>
+    </footer>
+
   </div>
 </template>
 

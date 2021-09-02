@@ -57,14 +57,18 @@
         <b-button type="is-danger is-light" @click="deleteID(props.row.id)" >Supprimer</b-button>
 
       </b-table-column>
-    </b-table><br>
+
+    </b-table>
+    <br>
+
+
 
     <div>
       <b-button type="is-success is-light" @click="previousPage" v-show="currentPage-1>0">Précédent</b-button>
       <b-button type="is-success is-light" @click="nextPage" v-show="currentPage+1<=lastPage">Suivant</b-button>
 <!--      <b-button type="primary-light" @click="finalPage" v-show="lastPage">Dernière page</b-button>-->
     </div>
-
+<br>
   </div>
 </template>
 
