@@ -68,7 +68,7 @@ export default {
     createID() {
       console.log(this.dataAdded)
       axios
-        .post('https://heroku-campus-suppliers.herokuapp.com/api/resellers', {     name: this.dataAdded.name,
+        .post('https://heroku-campus-suppliers.herokuapp.com/api/resellers', { name: this.dataAdded.name,
     description: this.dataAdded.description,
     supplier_id: this.dataAdded.supplier_id,
     latitude: this.dataAdded.latitude,

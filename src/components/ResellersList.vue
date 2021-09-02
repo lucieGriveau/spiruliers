@@ -7,8 +7,8 @@
   </div>
   <p v-if="loading">Loading...</p>
   <div class="prev-next">
-    <b-button @click="previousPage" v-show="currentPage-1>0" class="previous">⬅</b-button>
-    <b-button @click="nextPage" v-show="currentPage+1<=lastPage" class="next">➡</b-button>
+    <b-button @click="previousPage" type="is-success is-light" v-show="currentPage-1>0" class="previous">⬅</b-button>
+    <b-button @click="nextPage" type="is-success is-light" v-show="currentPage+1<=lastPage" class="next">➡</b-button>
   </div>
   <b-table :data="resellers">
     <b-table-column field="id" label="ID" sortable centered numeric v-slot="props">
@@ -49,8 +49,8 @@
     </b-table-column>
   </b-table>
   <div class="prev-next">
-    <b-button @click="previousPage" v-show="currentPage-1>0" class="previous">⬅</b-button>
-    <b-button @click="nextPage" v-show="currentPage+1<=lastPage" class="next">➡</b-button>
+    <b-button @click="previousPage" type="is-success is-light" v-show="currentPage-1>0" class="previous">⬅</b-button>
+    <b-button @click="nextPage" type="is-success is-light" v-show="currentPage+1<=lastPage" class="next">➡</b-button>
   </div>
 </div>
 </template>

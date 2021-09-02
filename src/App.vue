@@ -136,6 +136,23 @@ body h2{
   border-right: 50px solid #2d654e;
 }
 
+body h3{
+  padding: 15px 20px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width: 50%;
+  font-size: 20px;
+  color: #2d654e;
+  border-top: 1px solid #2d654e;
+  border-bottom: 1px solid #2d654e;
+  border-left: 20px solid #2d654e;
+  border-right: 20px solid #2d654e;
+}
+
+.fournisseur{
+  margin-bottom: 50px;
+}
+
 .contact{
   margin: 0 auto;
 }
