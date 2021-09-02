@@ -132,7 +132,7 @@ export default {
 
 <style scoped>
 
-.input {
+.taginput .taginput-container.is-focusable, .textarea, .input {
   width: 50px;
 }
 
