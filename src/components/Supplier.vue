@@ -13,7 +13,7 @@
           </div>
           <div class="media-content">
             <h1 class="name">{{ info.name}}</h1>
-            <h3 class="contact">Conatct: 33 4 02154863</h3>
+            <h3 class="contact">Contact: 33 4 02154863</h3>
             <h3>spisupplier@ehnois.fr</h3>
             <a class="name">Localisation: {{ info.longitude}}{{ info.latitude}}</a> <br>
             <br>

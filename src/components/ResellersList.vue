@@ -45,7 +45,7 @@
           }">
         <b-button class="edit" type="is-warning is-light">Editer</b-button>
       </router-link>
-      <b-button class="del" @click="deleteID(props.row.id)" type="is-danger is-light">Supprimer</b-button>
+      <b-button class="del" @click="deleteID(props.row.id)" type="is-danger is-light">Supprimer 🗑️ </b-button>
     </b-table-column>
   </b-table>
   <div class="prev-next">

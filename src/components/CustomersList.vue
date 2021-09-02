@@ -54,7 +54,7 @@
             <b-button type="is-warning is-light">Editer</b-button>
         </router-link>
 
-        <b-button type="is-danger is-light" @click="deleteID(props.row.id)" >Supprimer</b-button>
+        <b-button type="is-danger is-light" @click="deleteID(props.row.id)" >Supprimer 🗑️ </b-button>
 
       </b-table-column>
 

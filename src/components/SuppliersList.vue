@@ -14,7 +14,7 @@
               }
             }"> Ajouter un Fournisseur
     </router-link>
-  </div>
+  </div><br>
 
     <p v-if="loading">Loading...</p>
 
@@ -28,7 +28,7 @@
     <b-table-column field="name" label="Fournisseur" centered sortable  v-slot="props" >
       {{ props.row.name }}
     </b-table-column>
-    <b-table-column field="checkedAt"  label="Date d'Insertion" centered numeric sortable  v-slot="props" :value="formatDate()" >
+    <b-table-column field="checkedAt"  label="Date d'insertion" centered numeric sortable  v-slot="props" :value="formatDate()" >
 <!--      {{ date}}-->
       {{ props.row.checkedAt}}
     </b-table-column>
